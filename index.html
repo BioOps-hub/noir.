@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>noir</title>
+    <title>noir • exclusive intel</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Courier New', monospace;
         }
 
         body {
-            background-color: #000;
+            background: linear-gradient(45deg, #1a0808, #2d0808, #1a0808);
             color: #fff;
             min-height: 100vh;
             display: flex;
@@ -21,41 +21,108 @@
             align-items: center;
             justify-content: center;
             padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Matrix-like effect */
+        .matrix-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.2) 0px,
+                rgba(0, 0, 0, 0.2) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            opacity: 0.3;
         }
 
         .container {
-            max-width: 600px;
+            max-width: 800px;
             text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+            position: relative;
+            z-index: 1;
         }
 
         .logo {
-            font-size: 64px;
+            font-size: 72px;
             font-weight: 700;
             margin-bottom: 24px;
             letter-spacing: -2px;
+            text-transform: lowercase;
+            position: relative;
+        }
+
+        .logo::after {
+            content: "classified";
+            position: absolute;
+            top: -15px;
+            right: -60px;
+            font-size: 14px;
+            color: #ff0000;
+            transform: rotate(30deg);
+            border: 1px solid #ff0000;
+            padding: 2px 8px;
+            border-radius: 3px;
         }
 
         .description {
-            font-size: 20px;
+            font-size: 18px;
             line-height: 1.5;
-            color: #888;
+            color: #cc9999;
             margin-bottom: 40px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .status {
+            color: #ff3333;
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .status::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: #ff0000;
+            border-radius: 50%;
+            animation: blink 1s infinite;
         }
 
         .button {
             display: inline-block;
-            background-color: #fff;
-            color: #000;
-            padding: 12px 24px;
+            background: linear-gradient(45deg, #660000, #990000);
+            color: #fff;
+            padding: 15px 30px;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             font-size: 18px;
-            transition: transform 0.2s;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 0, 0, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .button:hover {
             transform: scale(1.05);
+            background: linear-gradient(45deg, #990000, #cc0000);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
         }
 
         .links {
@@ -63,60 +130,86 @@
         }
 
         .links a {
-            color: #888;
+            color: #cc9999;
             text-decoration: none;
             margin: 0 12px;
             font-size: 16px;
+            transition: color 0.3s;
         }
 
         .links a:hover {
-            color: #fff;
+            color: #ff3333;
         }
 
-        .coming-soon {
-            margin-top: 20px;
-            color: #666;
-            font-size: 14px;
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
         }
 
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+        .stat-item {
+            background: rgba(255, 0, 0, 0.1);
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: 1px solid rgba(255, 0, 0, 0.2);
         }
 
-        .gradient-text {
-            background: linear-gradient(45deg, #fff, #666, #fff);
-            background-size: 200% 200%;
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: gradient 3s ease infinite;
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
         }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        .logo:hover {
+            animation: glitch 0.3s linear infinite;
+            color: #ff3333;
+        }
+
     </style>
 </head>
 <body>
+    <div class="matrix-bg"></div>
     <div class="container">
-        <h1 class="logo gradient-text">noir</h1>
+        <h1 class="logo">noir</h1>
+        <div class="status">LIVE INTEL FEED ACTIVE</div>
         <p class="description">
-            Experience the future of digital creativity. 
-            A new platform for artists, creators, and visionaries.
+            Access the most exclusive information network.<br>
+            Verified leaks. Authenticated sources. Real-time updates.
         </p>
-        <a href="#" class="button">Join Waitlist →</a>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div>2,481</div>
+                <div>Active Users</div>
+            </div>
+            <div class="stat-item">
+                <div>147</div>
+                <div>New Leaks Today</div>
+            </div>
+            <div class="stat-item">
+                <div>99.8%</div>
+                <div>Accuracy Rate</div>
+            </div>
+        </div>
+
+        <a href="#" class="button">Request Access</a>
         
         <div class="links">
-            <a href="#" target="_blank">Twitter</a>
-            <a href="#" target="_blank">Discord</a>
-            <a href="#" target="_blank">About</a>
+            <a href="#" target="_blank">Latest Leaks</a>
+            <a href="#" target="_blank">Verified Sources</a>
+            <a href="#" target="_blank">Security</a>
         </div>
-        
-        <p class="coming-soon">Launching Soon</p>
     </div>
 </body>
 </html>
