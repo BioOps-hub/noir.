@@ -161,6 +161,32 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
+
+        .logo {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+            text-transform: lowercase;
+            background: linear-gradient(45deg, #FF0080, #FF69B4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
+            display: inline-block;
+            animation: fadeInScale 1.5s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
                 .description {
             font-size: 18px;
             line-height: 1.5;
@@ -232,6 +258,31 @@
             animation: fadeInStats 0.5s ease-out forwards;
         }
 
+        .number-animate {
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        @keyframes numberPulse {
+            0% {
+                transform: scale(1);
+                color: #FF0080;
+            }
+            50% {
+                transform: scale(1.1);
+                color: #FF69B4;
+            }
+            100% {
+                transform: scale(1);
+                color: #FF0080;
+            }
+        }
+
+        .number-update {
+            animation: numberPulse 0.3s ease-out;
+        }
+
         .stat-item:nth-child(1) { animation-delay: 0.6s; }
         .stat-item:nth-child(2) { animation-delay: 0.8s; }
         .stat-item:nth-child(3) { animation-delay: 1s; }
@@ -295,13 +346,19 @@
             50% { opacity: 0.3; }
             100% { opacity: 1; }
         }
-
-        .number-animate {
-            transition: all 0.3s ease;
-        }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">noir.</a>
+        <div class="nav-links">
+            <a href="#agents">Gooner Agents</a>
+            <a href="#ca">CA</a>
+            <a href="#about">About</a>
+            <a href="#policies">Policies</a>
+        </div>
+    </nav>
+
     <div class="background">
         <div class="shape shape-1"></div>
         <div class="shape shape-2"></div>
@@ -355,6 +412,12 @@
             const element = document.getElementById(elementId);
             
             setInterval(() => {
+                // Remove previous animation class
+                element.classList.remove('number-update');
+                
+                // Force reflow
+                void element.offsetWidth;
+                
                 switch(elementId) {
                     case 'activeUsers':
                         currentValues.activeUsers += Math.floor(Math.random() * increment) + 1;
@@ -372,6 +435,9 @@
                         }
                         break;
                 }
+                
+                // Add animation class
+                element.classList.add('number-update');
             }, interval);
         }
 
