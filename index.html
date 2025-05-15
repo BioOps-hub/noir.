@@ -28,8 +28,8 @@
             filter: blur(70px);
             opacity: 0.7;
             animation: float 20s infinite;
-            transition: all 0.3s ease-out; /* Add this line */
-            will-change: transform; /* Add this line for better performance */
+            transition: all 0.3s ease-out;
+            will-change: transform;
         }
 
         .shape-1 {
@@ -121,7 +121,10 @@
             margin-bottom: 24px;
             letter-spacing: -2px;
             text-transform: lowercase;
-            color: #FF0080;
+            background: linear-gradient(45deg, #FF0080, #FF69B4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
             position: relative;
             display: inline-block;
             animation: fadeInScale 1.5s ease-out;
@@ -196,6 +199,72 @@
             animation: blink 1s infinite;
         }
 
+        .how-it-works {
+            margin: 40px 0;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 0, 128, 0.1);
+            border-bottom: 1px solid rgba(255, 0, 128, 0.1);
+        }
+
+        .how-it-works h2 {
+            color: #FF0080;
+            font-size: 24px;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out 0.2s forwards;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin: 0 auto;
+            max-width: 900px;
+        }
+
+        .step {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInStep 0.5s ease-out forwards;
+        }
+
+        .step:nth-child(1) { animation-delay: 0.4s; }
+        .step:nth-child(2) { animation-delay: 0.6s; }
+        .step:nth-child(3) { animation-delay: 0.8s; }
+
+        .step i {
+            font-size: 32px;
+            color: #FF0080;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover i {
+            transform: translateY(-5px);
+        }
+
+        .step h3 {
+            color: #FF0080;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        @keyframes fadeInStep {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .button {
             display: inline-block;
             background: #FF0080;
@@ -230,18 +299,34 @@
             transform: translateY(20px);
             opacity: 0;
             animation: fadeInStats 0.5s ease-out forwards;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 0, 128, 0.1), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-item:hover::before {
+            transform: translateX(100%);
         }
 
         .stat-item:nth-child(1) { animation-delay: 0.6s; }
         .stat-item:nth-child(2) { animation-delay: 0.8s; }
         .stat-item:nth-child(3) { animation-delay: 1s; }
-
-        @keyframes fadeInStats {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
 
         .stat-item div:first-child {
             color: #FF0080;
@@ -270,14 +355,7 @@
             padding: 8px 16px;
             border-radius: 20px;
             background: rgba(255, 0, 128, 0.05);
-            opacity: 0;
-            animation: fadeIn 0.5s ease-out forwards;
         }
-
-        .links a:nth-child(1) { animation-delay: 1.2s; }
-        .links a:nth-child(2) { animation-delay: 1.4s; }
-        .links a:nth-child(3) { animation-delay: 1.6s; }
-        .links a:nth-child(4) { animation-delay: 1.8s; }
 
         .links a:hover {
             color: #FF0080;
@@ -310,25 +388,46 @@
     <div class="grid-overlay"></div>
 
     <div class="container">
-        <h1 class="logo">noir.</h1>
+        <h1 class="logo">noir</h1>
         <div class="status">LIVE INTEL FEED ACTIVE</div>
         <p class="description">
-            Hold $NOIR. Unlock exclusive content curated by AI. <br>
-            Your all-in-one, Gooner Central.
+            Access the most exclusive information network.<br>
+            Verified leaks. Authenticated sources. Real-time updates.
         </p>
 
         <div class="stats">
             <div class="stat-item">
                 <div><span class="number-animate" id="activeUsers">2,481</span></div>
-                <div>👥 Active Users</div>
+                <div>Active Users</div>
             </div>
             <div class="stat-item">
                 <div><span class="number-animate" id="newLeaks">147</span></div>
-                <div>🔓 New Leaks Today</div>
+                <div>New Leaks Today</div>
             </div>
             <div class="stat-item">
                 <div><span class="number-animate" id="accuracyRate">99.8</span>%</div>
-                <div>🎯 Accuracy Rate</div>
+                <div>Accuracy Rate</div>
+            </div>
+        </div>
+
+        <div class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <i class="fas fa-coins"></i>
+                    <h3>Hold $NOIR</h3>
+                    <p>Token = access</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-robot"></i>
+                    <h3>Ask Noir AI</h3>
+                    <p>Type a creator, keyword, or tag</p>
+                </div>
+                <div class="step">
+                    <i class="fas fa-unlock-alt"></i>
+                    <h3>Unlock Results</h3>
+                    <p>Explore verified content in real time</p>
+                </div>
             </div>
         </div>
 
@@ -338,63 +437,61 @@
             <a href="https://twitter.com/" target="_blank" class="twitter-link">
                 <i class="fa-brands fa-x-twitter"></i> Twitter
             </a>
-            <a href="#" target="_blank">CA</a>
-            <a href="#" target="_blank">Github</a>
-            <a href="#" target="_blank">Policy</a>
+            <a href="#" target="_blank">Latest Leaks</a>
+            <a href="#" target="_blank">Verified Sources</a>
+            <a href="#" target="_blank">Security</a>
         </div>
     </div>
 
     <script>
-    // Existing number counter code
-    const currentValues = {
-        activeUsers: 2481,
-        newLeaks: 147,
-        accuracyRate: 99.8
-    };
+        const currentValues = {
+            activeUsers: 2481,
+            newLeaks: 147,
+            accuracyRate: 99.8
+        };
 
-    function updateNumber(elementId, increment, interval, isDecimal = false) {
-        const element = document.getElementById(elementId);
-        
-        setInterval(() => {
-            switch(elementId) {
-                case 'activeUsers':
-                    currentValues.activeUsers += Math.floor(Math.random() * increment) + 1;
-                    element.textContent = currentValues.activeUsers.toLocaleString();
-                    break;
-                case 'newLeaks':
-                    currentValues.newLeaks += Math.floor(Math.random() * increment) + 1;
-                    element.textContent = currentValues.newLeaks.toLocaleString();
-                    break;
-                case 'accuracyRate':
-                    if (currentValues.accuracyRate < 99.9) {
-                        currentValues.accuracyRate += (Math.random() * 0.1);
-                        currentValues.accuracyRate = Math.min(99.9, currentValues.accuracyRate);
-                        element.textContent = currentValues.accuracyRate.toFixed(1);
-                    }
-                    break;
-            }
-        }, interval);
-    }
-
-    updateNumber('activeUsers', 5, 3000);
-    updateNumber('newLeaks', 2, 2000);
-    updateNumber('accuracyRate', 0.1, 4000, true);
-
-    // Add the new parallax effect code here
-    document.addEventListener('mousemove', (e) => {
-        const shapes = document.querySelectorAll('.shape');
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-        
-        shapes.forEach((shape, index) => {
-            const speed = (index + 1) * 2;
-            const scale = 1 + (x * y * 0.1); // Add subtle scaling
-            const rotation = x * y * 90; // Add rotation based on mouse position
+        function updateNumber(elementId, increment, interval, isDecimal = false) {
+            const element = document.getElementById(elementId);
             
-            shape.style.transform = `translate(${x * speed}%, ${y * speed}%) rotate(${rotation}deg) scale(${scale})`;
-            shape.style.transition = 'transform 0.3s ease-out';
+            setInterval(() => {
+                switch(elementId) {
+                    case 'activeUsers':
+                        currentValues.activeUsers += Math.floor(Math.random() * increment) + 1;
+                        element.textContent = currentValues.activeUsers.toLocaleString();
+                        break;
+                    case 'newLeaks':
+                        currentValues.newLeaks += Math.floor(Math.random() * increment) + 1;
+                        element.textContent = currentValues.newLeaks.toLocaleString();
+                        break;
+                    case 'accuracyRate':
+                        if (currentValues.accuracyRate < 99.9) {
+                            currentValues.accuracyRate += (Math.random() * 0.1);
+                            currentValues.accuracyRate = Math.min(99.9, currentValues.accuracyRate);
+                            element.textContent = currentValues.accuracyRate.toFixed(1);
+                        }
+                        break;
+                }
+            }, interval);
+        }
+
+        updateNumber('activeUsers', 5, 3000);
+        updateNumber('newLeaks', 2, 2000);
+        updateNumber('accuracyRate', 0.1, 4000, true);
+
+        // Parallax effect
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 2;
+                const scale = 1 + (x * y * 0.1);
+                const rotation = x * y * 90;
+                
+                shape.style.transform = `translate(${x * speed}%, ${y * speed}%) rotate(${rotation}deg) scale(${scale})`;
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
