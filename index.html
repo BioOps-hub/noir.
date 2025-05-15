@@ -13,6 +13,54 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 0, 128, 0.1);
+        }
+
+        .navbar-logo {
+            font-size: 24px;
+            font-weight: 700;
+            text-decoration: none;
+            background: linear-gradient(45deg, #FF0080, #FF69B4);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            color: #FF0080;
+            background: rgba(255, 0, 128, 0.05);
+        }
+
         .background {
             position: fixed;
             top: 0;
@@ -101,6 +149,7 @@
         }
 
         .container {
+            margin-top: 80px;
             max-width: 800px;
             text-align: center;
             background: rgba(255, 255, 255, 0.9);
@@ -112,55 +161,7 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
         }
-
-        .logo {
-            font-size: 72px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            letter-spacing: -2px;
-            text-transform: lowercase;
-            color: #FF0080;
-            position: relative;
-            display: inline-block;
-            animation: fadeInScale 1.5s ease-out;
-        }
-
-        @keyframes fadeInScale {
-            0% {
-                opacity: 0;
-                transform: scale(0.95) translateY(10px);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
-            }
-        }
-
-        .logo::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #FF0080;
-            transform: scaleX(0);
-            transform-origin: right;
-            animation: underline 1.5s ease-out 0.5s forwards;
-        }
-
-        @keyframes underline {
-            0% {
-                transform: scaleX(0);
-                transform-origin: right;
-            }
-            100% {
-                transform: scaleX(1);
-                transform-origin: left;
-            }
-        }
-
-        .description {
+                .description {
             font-size: 18px;
             line-height: 1.5;
             color: #666;
@@ -175,7 +176,8 @@
                 transform: translateY(0);
             }
         }
-                .status {
+
+        .status {
             color: #FF0080;
             font-size: 14px;
             margin-bottom: 20px;
@@ -300,6 +302,16 @@
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <a href="#" class="navbar-logo">noir.</a>
+        <div class="nav-links">
+            <a href="#agents">Gooner Agents</a>
+            <a href="#ca">CA</a>
+            <a href="#about">About</a>
+            <a href="#policies">Policies</a>
+        </div>
+    </nav>
+
     <div class="background">
         <div class="shape shape-1"></div>
         <div class="shape shape-2"></div>
@@ -308,7 +320,6 @@
     <div class="grid-overlay"></div>
 
     <div class="container">
-        <h1 class="logo">noir.</h1>
         <div class="status">LIVE INTEL FEED ACTIVE</div>
         <p class="description">
             Hold $NOIR. Unlock exclusive content curated by AI. <br>
@@ -330,7 +341,7 @@
             </div>
         </div>
 
-        <a href="access.html" class="button">Request Access</a>
+        <a href="#" class="button">Connect Wallet</a>
         
         <div class="links">
             <a href="https://twitter.com/" target="_blank" class="twitter-link">
@@ -343,56 +354,54 @@
     </div>
 
     <script>
-    // Existing number counter code
-    const currentValues = {
-        activeUsers: 2481,
-        newLeaks: 147,
-        accuracyRate: 99.8
-    };
+        const currentValues = {
+            activeUsers: 2481,
+            newLeaks: 147,
+            accuracyRate: 99.8
+        };
 
-    function updateNumber(elementId, increment, interval, isDecimal = false) {
-        const element = document.getElementById(elementId);
-        
-        setInterval(() => {
-            switch(elementId) {
-                case 'activeUsers':
-                    currentValues.activeUsers += Math.floor(Math.random() * increment) + 1;
-                    element.textContent = currentValues.activeUsers.toLocaleString();
-                    break;
-                case 'newLeaks':
-                    currentValues.newLeaks += Math.floor(Math.random() * increment) + 1;
-                    element.textContent = currentValues.newLeaks.toLocaleString();
-                    break;
-                case 'accuracyRate':
-                    if (currentValues.accuracyRate < 99.9) {
-                        currentValues.accuracyRate += (Math.random() * 0.1);
-                        currentValues.accuracyRate = Math.min(99.9, currentValues.accuracyRate);
-                        element.textContent = currentValues.accuracyRate.toFixed(1);
-                    }
-                    break;
-            }
-        }, interval);
-    }
-
-    updateNumber('activeUsers', 5, 3000);
-    updateNumber('newLeaks', 2, 2000);
-    updateNumber('accuracyRate', 0.1, 4000, true);
-
-    // Add the new parallax effect code here
-    document.addEventListener('mousemove', (e) => {
-        const shapes = document.querySelectorAll('.shape');
-        const x = e.clientX / window.innerWidth;
-        const y = e.clientY / window.innerHeight;
-        
-        shapes.forEach((shape, index) => {
-            const speed = (index + 1) * 2;
-            const scale = 1 + (x * y * 0.1); // Add subtle scaling
-            const rotation = x * y * 90; // Add rotation based on mouse position
+        function updateNumber(elementId, increment, interval, isDecimal = false) {
+            const element = document.getElementById(elementId);
             
-            shape.style.transform = `translate(${x * speed}%, ${y * speed}%) rotate(${rotation}deg) scale(${scale})`;
-            shape.style.transition = 'transform 0.3s ease-out';
+            setInterval(() => {
+                switch(elementId) {
+                    case 'activeUsers':
+                        currentValues.activeUsers += Math.floor(Math.random() * increment) + 1;
+                        element.textContent = currentValues.activeUsers.toLocaleString();
+                        break;
+                    case 'newLeaks':
+                        currentValues.newLeaks += Math.floor(Math.random() * increment) + 1;
+                        element.textContent = currentValues.newLeaks.toLocaleString();
+                        break;
+                    case 'accuracyRate':
+                        if (currentValues.accuracyRate < 99.9) {
+                            currentValues.accuracyRate += (Math.random() * 0.1);
+                            currentValues.accuracyRate = Math.min(99.9, currentValues.accuracyRate);
+                            element.textContent = currentValues.accuracyRate.toFixed(1);
+                        }
+                        break;
+                }
+            }, interval);
+        }
+
+        updateNumber('activeUsers', 5, 3000);
+        updateNumber('newLeaks', 2, 2000);
+        updateNumber('accuracyRate', 0.1, 4000, true);
+
+        document.addEventListener('mousemove', (e) => {
+            const shapes = document.querySelectorAll('.shape');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 2;
+                const scale = 1 + (x * y * 0.1);
+                const rotation = x * y * 90;
+                
+                shape.style.transform = `translate(${x * speed}%, ${y * speed}%) rotate(${rotation}deg) scale(${scale})`;
+                shape.style.transition = 'transform 0.3s ease-out';
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
