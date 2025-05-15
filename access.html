@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noir • request access</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Courier New', monospace;
+        }
+
+        body {
+            background: linear-gradient(45deg, #1a0808, #2d0808, #1a0808);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 500px;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 40px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 0, 0, 0.1);
+            backdrop-filter: blur(5px);
+        }
+
+        .logo {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #cc9999;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 0, 0, 0.1);
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            border-radius: 5px;
+            color: #fff;
+            font-size: 16px;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            background: rgba(255, 0, 0, 0.2);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #660000, #990000);
+            color: #fff;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(45deg, #990000, #cc0000);
+            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+        }
+
+        .message {
+            margin-top: 20px;
+            color: #cc9999;
+            font-size: 14px;
+        }
+
+        .back-btn {
+            color: #cc9999;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #ff3333;
+        }
+
+        .glitch-lines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent 0px,
+                transparent 1px,
+                rgba(255, 0, 0, 0.05) 2px,
+                transparent 3px
+            );
+            background-size: 100% 4px;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="glitch-lines"></div>
+    
+    <div class="container">
+        <a href="index.html" class="logo">noir</a>
+        <form id="accessForm" onsubmit="return handleSubmit(event)">
+            <div class="form-group">
+                <label>Username</label>
+                <input type="text" required>
+            </div>
+            <div class="form-group">
+                <label>Email</label>
+                <input type="email" required>
+            </div>
+            <div class="form-group">
+                <label>Discord Tag (optional)</label>
+                <input type="text">
+            </div>
+            <div class="form-group">
+                <label>Reason for Access</label>
+                <input type="text" required>
+            </div>
+            <button type="submit" class="submit-btn">Submit Request</button>
+        </form>
+        <p class="message">Your request will be reviewed within 24 hours</p>
+        <a href="index.html" class="back-btn">← Back to Home</a>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            // Here you can add code to handle the form submission
+            alert('Request submitted successfully');
+            return false;
+        }
+    </script>
+</body>
+</html>
