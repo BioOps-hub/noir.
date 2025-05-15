@@ -4,11 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>noir • exclusive intel</title>
-    <meta name="description" content="Exclusive AI-driven content and leaks platform">
-    <meta name="keywords" content="AI, exclusive content, leaks, intelligence">
-    <meta property="og:title" content="noir • exclusive intel">
-    <meta property="og:description" content="Your all-in-one, Gooner Central">
-    <meta property="og:image" content="path-to-your-og-image.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         * {
@@ -78,50 +73,21 @@
             z-index: -1;
         }
 
-        /* Your existing animations */
         @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(2%, 2%) rotate(120deg); }
-            66% { transform: translate(-2%, -1%) rotate(240deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
-        }
-
-        @keyframes fadeInScale {
             0% {
-                opacity: 0;
-                transform: scale(0.95) translateY(10px);
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(2%, 2%) rotate(120deg);
+            }
+            66% {
+                transform: translate(-2%, -1%) rotate(240deg);
             }
             100% {
-                opacity: 1;
-                transform: scale(1) translateY(0);
+                transform: translate(0, 0) rotate(360deg);
             }
         }
 
-        @keyframes underline {
-            0% {
-                transform: scaleX(0);
-                transform-origin: right;
-            }
-            100% {
-                transform: scaleX(1);
-                transform-origin: left;
-            }
-        }
-
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
-
-        /* Your existing styles */
         body {
             background: transparent;
             color: #1a1a1a;
@@ -147,94 +113,189 @@
             -webkit-backdrop-filter: blur(10px);
         }
 
-        /* All your existing styles here */
-
-        /* New How It Works section styles */
-        .how-it-works {
-            margin-top: 60px;
-            padding: 40px 0;
-            width: 100%;
+        .logo {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+            text-transform: lowercase;
+            color: #FF0080;
+            position: relative;
+            display: inline-block;
+            animation: fadeInScale 1.5s ease-out;
         }
 
-        .how-it-works h2 {
-            font-size: 24px;
-            color: #FF0080;
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #FF0080;
+            transform: scaleX(0);
+            transform-origin: right;
+            animation: underline 1.5s ease-out 0.5s forwards;
+        }
+
+        @keyframes underline {
+            0% {
+                transform: scaleX(0);
+                transform-origin: right;
+            }
+            100% {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+        }
+
+        .description {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #666;
             margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.5s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+                .status {
+            color: #FF0080;
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .status::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: #FF0080;
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+
+        .button {
+            display: inline-block;
+            background: #FF0080;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
             text-transform: uppercase;
             letter-spacing: 2px;
-            opacity: 0;
-            animation: fadeIn 0.5s ease-out 2s forwards;
         }
 
-        .steps {
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 0, 128, 0.2);
+        }
+
+        .stats {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             gap: 30px;
+            margin: 30px 0;
         }
 
-        .step {
-            flex: 1;
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 0, 128, 0.03);
-            border-radius: 16px;
-            transition: all 0.3s ease;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInStep 0.5s ease-out forwards;
-        }
-
-        .step:nth-child(1) { animation-delay: 2.2s; }
-        .step:nth-child(2) { animation-delay: 2.4s; }
-        .step:nth-child(3) { animation-delay: 2.6s; }
-
-        .step:hover {
-            transform: translateY(-5px);
+        .stat-item {
             background: rgba(255, 0, 128, 0.05);
+            padding: 20px;
+            border-radius: 16px;
+            min-width: 140px;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInStats 0.5s ease-out forwards;
         }
 
-        .step i {
-            font-size: 32px;
-            color: #FF0080;
-            margin-bottom: 15px;
-        }
+        .stat-item:nth-child(1) { animation-delay: 0.6s; }
+        .stat-item:nth-child(2) { animation-delay: 0.8s; }
+        .stat-item:nth-child(3) { animation-delay: 1s; }
 
-        .step-title {
-            font-weight: 600;
-            color: #333;
-            margin-bottom: 8px;
-        }
-
-        .step-description {
-            font-size: 14px;
-            color: #666;
-            line-height: 1.4;
-        }
-
-        @keyframes fadeInStep {
+        @keyframes fadeInStats {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
         }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
-            .stats {
-                flex-direction: column;
-            }
-            .logo {
-                font-size: 48px;
-            }
-            .steps {
-                flex-direction: column;
-            }
-            .step {
-                margin-bottom: 20px;
-            }
+        .stat-item div:first-child {
+            color: #FF0080;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .stat-item div:last-child {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: rgba(255, 0, 128, 0.05);
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .links a:nth-child(1) { animation-delay: 1.2s; }
+        .links a:nth-child(2) { animation-delay: 1.4s; }
+        .links a:nth-child(3) { animation-delay: 1.6s; }
+        .links a:nth-child(4) { animation-delay: 1.8s; }
+
+        .links a:hover {
+            color: #FF0080;
+            background: rgba(255, 0, 128, 0.1);
+        }
+
+        .twitter-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .number-animate {
+            transition: all 0.3s ease;
         }
     </style>
 </head>
@@ -248,7 +309,7 @@
 
     <div class="container">
         <h1 class="logo">noir.</h1>
-        <div class="status" role="status" aria-live="polite">LIVE INTEL FEED ACTIVE</div>
+        <div class="status">LIVE INTEL FEED ACTIVE</div>
         <p class="description">
             Hold $NOIR. Unlock exclusive content curated by AI. <br>
             Your all-in-one, Gooner Central.
@@ -269,30 +330,6 @@
             </div>
         </div>
 
-        <!-- New How It Works section -->
-        <div class="how-it-works">
-            <h2>How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <i class="fas fa-coins"></i>
-                    <div class="step-title">Hold $NOIR</div>
-                    <div class="step-description">Token = Access</div>
-                </div>
-                
-                <div class="step">
-                    <i class="fas fa-robot"></i>
-                    <div class="step-title">Ask Noir AI</div>
-                    <div class="step-description">Type a creator, keyword, or tag</div>
-                </div>
-                
-                <div class="step">
-                    <i class="fas fa-unlock-alt"></i>
-                    <div class="step-title">Unlock Results</div>
-                    <div class="step-description">Explore verified content in real time</div>
-                </div>
-            </div>
-        </div>
-
         <a href="access.html" class="button">Request Access</a>
         
         <div class="links">
@@ -306,56 +343,56 @@
     </div>
 
     <script>
-        // Your existing JavaScript
-        const currentValues = {
-            activeUsers: 2481,
-            newLeaks: 147,
-            accuracyRate: 99.8
-        };
+    // Existing number counter code
+    const currentValues = {
+        activeUsers: 2481,
+        newLeaks: 147,
+        accuracyRate: 99.8
+    };
 
-        function updateNumber(elementId, increment, interval, isDecimal = false) {
-            const element = document.getElementById(elementId);
+    function updateNumber(elementId, increment, interval, isDecimal = false) {
+        const element = document.getElementById(elementId);
+        
+        setInterval(() => {
+            switch(elementId) {
+                case 'activeUsers':
+                    currentValues.activeUsers += Math.floor(Math.random() * increment) + 1;
+                    element.textContent = currentValues.activeUsers.toLocaleString();
+                    break;
+                case 'newLeaks':
+                    currentValues.newLeaks += Math.floor(Math.random() * increment) + 1;
+                    element.textContent = currentValues.newLeaks.toLocaleString();
+                    break;
+                case 'accuracyRate':
+                    if (currentValues.accuracyRate < 99.9) {
+                        currentValues.accuracyRate += (Math.random() * 0.1);
+                        currentValues.accuracyRate = Math.min(99.9, currentValues.accuracyRate);
+                        element.textContent = currentValues.accuracyRate.toFixed(1);
+                    }
+                    break;
+            }
+        }, interval);
+    }
+
+    updateNumber('activeUsers', 5, 3000);
+    updateNumber('newLeaks', 2, 2000);
+    updateNumber('accuracyRate', 0.1, 4000, true);
+
+    // Add the new parallax effect code here
+    document.addEventListener('mousemove', (e) => {
+        const shapes = document.querySelectorAll('.shape');
+        const x = e.clientX / window.innerWidth;
+        const y = e.clientY / window.innerHeight;
+        
+        shapes.forEach((shape, index) => {
+            const speed = (index + 1) * 2;
+            const scale = 1 + (x * y * 0.1); // Add subtle scaling
+            const rotation = x * y * 90; // Add rotation based on mouse position
             
-            setInterval(() => {
-                switch(elementId) {
-                    case 'activeUsers':
-                        currentValues.activeUsers += Math.floor(Math.random() * increment) + 1;
-                        element.textContent = currentValues.activeUsers.toLocaleString();
-                        break;
-                    case 'newLeaks':
-                        currentValues.newLeaks += Math.floor(Math.random() * increment) + 1;
-                        element.textContent = currentValues.newLeaks.toLocaleString();
-                        break;
-                    case 'accuracyRate':
-                        if (currentValues.accuracyRate < 99.9) {
-                            currentValues.accuracyRate += (Math.random() * 0.1);
-                            currentValues.accuracyRate = Math.min(99.9, currentValues.accuracyRate);
-                            element.textContent = currentValues.accuracyRate.toFixed(1);
-                        }
-                        break;
-                }
-            }, interval);
-        }
-
-        updateNumber('activeUsers', 5, 3000);
-        updateNumber('newLeaks', 2, 2000);
-        updateNumber('accuracyRate', 0.1, 4000, true);
-
-        // Parallax effect
-        document.addEventListener('mousemove', (e) => {
-            const shapes = document.querySelectorAll('.shape');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            shapes.forEach((shape, index) => {
-                const speed = (index + 1) * 2;
-                const scale = 1 + (x * y * 0.1);
-                const rotation = x * y * 90;
-                
-                shape.style.transform = `translate(${x * speed}%, ${y * speed}%) rotate(${rotation}deg) scale(${scale})`;
-                shape.style.transition = 'transform 0.3s ease-out';
-            });
+            shape.style.transform = `translate(${x * speed}%, ${y * speed}%) rotate(${rotation}deg) scale(${scale})`;
+            shape.style.transition = 'transform 0.3s ease-out';
         });
-    </script>
+    });
+</script>
 </body>
 </html>
