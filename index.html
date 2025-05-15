@@ -13,56 +13,6 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
-        .awareness-animation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            opacity: 0.1;
-            pointer-events: none;
-        }
-
-        .cell {
-            position: absolute;
-            background: radial-gradient(circle, #FF69B4, transparent);
-            border-radius: 50%;
-            opacity: 0.3;
-            animation: cellMultiply 15s infinite;
-        }
-
-        .pink-ribbon {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            background: linear-gradient(45deg, #FF69B4, #FF0080);
-            mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M50 25c10 0 15 15 15 25s-5 25-15 25-15-15-15-25 5-25 15-25z"/></svg>');
-            animation: revealRibbon 20s forwards;
-        }
-
-        @keyframes cellMultiply {
-            0% {
-                transform: scale(1);
-                opacity: 0.3;
-            }
-            50% {
-                transform: scale(2);
-                opacity: 0.6;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 0.3;
-            }
-        }
-
-        @keyframes revealRibbon {
-            0% { opacity: 0; }
-            90% { opacity: 0; }
-            100% { opacity: 0.1; }
-        }
-
         .navbar {
             position: fixed;
             top: 0;
@@ -170,11 +120,20 @@
             background-size: 30px 30px;
             z-index: -1;
         }
-                @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            33% { transform: translate(2%, 2%) rotate(120deg); }
-            66% { transform: translate(-2%, -1%) rotate(240deg); }
-            100% { transform: translate(0, 0) rotate(360deg); }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            33% {
+                transform: translate(2%, 2%) rotate(120deg);
+            }
+            66% {
+                transform: translate(-2%, -1%) rotate(240deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
         }
 
         body {
@@ -218,12 +177,180 @@
             animation: fadeInScale 1.5s ease-out;
         }
 
-        /* ... (keep all your existing styles from Part 1) ... */
+        @keyframes fadeInScale {
+            0% {
+                opacity: 0;
+                transform: scale(0.95) translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+                .description {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #666;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 0.5s forwards;
+        }
 
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .status {
+            color: #FF0080;
+            font-size: 14px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .status::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: #FF0080;
+            border-radius: 50%;
+            animation: blink 1s infinite;
+        }
+
+        .button {
+            display: inline-block;
+            background: #FF0080;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(255, 0, 128, 0.2);
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            background: rgba(255, 0, 128, 0.05);
+            padding: 20px;
+            border-radius: 16px;
+            min-width: 140px;
+            transform: translateY(20px);
+            opacity: 0;
+            animation: fadeInStats 0.5s ease-out forwards;
+        }
+
+        .number-animate {
+            transition: all 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        @keyframes numberPulse {
+            0% {
+                transform: scale(1);
+                color: #FF0080;
+            }
+            50% {
+                transform: scale(1.1);
+                color: #FF69B4;
+            }
+            100% {
+                transform: scale(1);
+                color: #FF0080;
+            }
+        }
+
+        .number-update {
+            animation: numberPulse 0.3s ease-out;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.6s; }
+        .stat-item:nth-child(2) { animation-delay: 0.8s; }
+        .stat-item:nth-child(3) { animation-delay: 1s; }
+
+        @keyframes fadeInStats {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .stat-item div:first-child {
+            color: #FF0080;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .stat-item div:last-child {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: rgba(255, 0, 128, 0.05);
+            opacity: 0;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+
+        .links a:nth-child(1) { animation-delay: 1.2s; }
+        .links a:nth-child(2) { animation-delay: 1.4s; }
+        .links a:nth-child(3) { animation-delay: 1.6s; }
+        .links a:nth-child(4) { animation-delay: 1.8s; }
+
+        .links a:hover {
+            color: #FF0080;
+            background: rgba(255, 0, 128, 0.1);
+        }
+
+        .twitter-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
         .github-link {
             display: inline-flex;
             align-items: center;
             gap: 8px;
+        }
+        
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
         }
     </style>
 </head>
@@ -238,8 +365,6 @@
         </div>
     </nav>
 
-    <div class="awareness-animation" id="awarenessAnimation"></div>
-    
     <div class="background">
         <div class="shape shape-1"></div>
         <div class="shape shape-2"></div>
@@ -276,43 +401,12 @@
             <a href="https://twitter.com/" target="_blank" class="twitter-link">
                 <i class="fa-brands fa-x-twitter"></i> Twitter
             </a>
-            <a href="#" target="_blank">CA</a>
             <a href="https://github.com/" target="_blank" class="github-link">
-                <i class="fa-brands fa-github"></i> Github
-            </a>
-            <a href="#" target="_blank">Policy</a>
+        <i class="fa-brands fa-github"></i> Github
         </div>
     </div>
 
     <script>
-        function createAwarenessAnimation() {
-            const container = document.getElementById('awarenessAnimation');
-            
-            // Create pink ribbon symbol
-            const ribbon = document.createElement('div');
-            ribbon.className = 'pink-ribbon';
-            container.appendChild(ribbon);
-            
-            // Create multiplying cells
-            for(let i = 0; i < 50; i++) {
-                const cell = document.createElement('div');
-                cell.className = 'cell';
-                
-                const size = Math.random() * 30 + 20;
-                cell.style.width = `${size}px`;
-                cell.style.height = `${size}px`;
-                cell.style.left = `${Math.random() * 100}%`;
-                cell.style.top = `${Math.random() * 100}%`;
-                cell.style.animationDelay = `${Math.random() * -15}s`;
-                
-                container.appendChild(cell);
-            }
-        }
-
-        // Initialize animations
-        createAwarenessAnimation();
-
-        // Number counter code
         const currentValues = {
             activeUsers: 2481,
             newLeaks: 147,
@@ -323,7 +417,10 @@
             const element = document.getElementById(elementId);
             
             setInterval(() => {
+                // Remove previous animation class
                 element.classList.remove('number-update');
+                
+                // Force reflow
                 void element.offsetWidth;
                 
                 switch(elementId) {
@@ -344,6 +441,7 @@
                         break;
                 }
                 
+                // Add animation class
                 element.classList.add('number-update');
             }, interval);
         }
@@ -352,7 +450,6 @@
         updateNumber('newLeaks', 2, 2000);
         updateNumber('accuracyRate', 0.1, 4000, true);
 
-        // Background parallax effect
         document.addEventListener('mousemove', (e) => {
             const shapes = document.querySelectorAll('.shape');
             const x = e.clientX / window.innerWidth;
