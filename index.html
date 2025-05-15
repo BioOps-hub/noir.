@@ -102,6 +102,7 @@
             z-index: 1;
         }
 
+        /* New Animated Logo Styles */
         .logo {
             font-size: 72px;
             font-weight: 700;
@@ -109,9 +110,24 @@
             letter-spacing: -2px;
             text-transform: lowercase;
             position: relative;
+            display: inline-block;
         }
 
+        .logo::before,
         .logo::after {
+            content: 'noir';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+            background: #fff;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+        }
+
+        .logo .classified-tag {
             content: "classified";
             position: absolute;
             top: -15px;
@@ -122,9 +138,74 @@
             border: 1px solid #ff0000;
             padding: 2px 8px;
             border-radius: 3px;
+            background: none;
+            -webkit-background-clip: unset;
+            background-clip: unset;
         }
 
-        .description {
+        .logo::before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            animation: glitch-1 2s linear infinite reverse;
+        }
+
+        .logo::after {
+            left: -2px;
+            text-shadow: 2px 0 blue;
+            animation: glitch-2 2s linear infinite;
+        }
+
+        @keyframes glitch-1 {
+            0% { clip-path: inset(20% 0 30% 0); }
+            20% { clip-path: inset(65% 0 15% 0); }
+            40% { clip-path: inset(40% 0 53% 0); }
+            60% { clip-path: inset(25% 0 60% 0); }
+            80% { clip-path: inset(75% 0 5% 0); }
+            100% { clip-path: inset(10% 0 85% 0); }
+        }
+
+        @keyframes glitch-2 {
+            0% { clip-path: inset(25% 0 65% 0); }
+            20% { clip-path: inset(5% 0 85% 0); }
+            40% { clip-path: inset(70% 0 15% 0); }
+            60% { clip-path: inset(15% 0 65% 0); }
+            80% { clip-path: inset(50% 0 30% 0); }
+            100% { clip-path: inset(35% 0 50% 0); }
+        }
+
+        .logo:hover {
+            animation: none;
+            transform: scale(1.05);
+            transition: transform 0.3s;
+        }
+
+        .logo:hover::before {
+            animation: glitch-1 0.5s linear infinite reverse;
+        }
+
+        .logo:hover::after {
+            animation: glitch-2 0.5s linear infinite;
+        }
+
+        .logo-container {
+            position: relative;
+        }
+
+        .logo-container::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Rest of your existing styles */
+                .description {
             font-size: 18px;
             line-height: 1.5;
             color: #cc9999;
@@ -189,184 +270,4 @@
         }
 
         .links a i {
-            margin-right: 5px;
-            font-size: 18px;
-        }
-
-        .twitter-link {
-            display: inline-flex;
-            align-items: center;
-            padding: 8px 16px;
-            background: rgba(255, 0, 0, 0.1);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .twitter-link:hover {
-            background: rgba(255, 0, 0, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
-        }
-
-        .stats {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 30px 0;
-            font-family: 'Courier New', monospace;
-        }
-
-        .stat-item {
-            background: rgba(255, 0, 0, 0.1);
-            padding: 10px 20px;
-            border-radius: 5px;
-            border: 1px solid rgba(255, 0, 0, 0.2);
-        }
-
-        .number-animate {
-            position: relative;
-            display: inline-block;
-        }
-
-        .number-animate.glitch {
-            animation: numberGlitch 0.2s ease;
-        }
-
-        @keyframes numberGlitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); opacity: 0.8; }
-            40% { transform: translate(-2px, -2px); opacity: 0.9; }
-            60% { transform: translate(2px, 2px); opacity: 0.8; }
-            80% { transform: translate(2px, -2px); opacity: 0.9; }
-            100% { transform: translate(0); opacity: 1; }
-        }
-
-        @keyframes blink {
-            0% { opacity: 1; }
-            50% { opacity: 0.3; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
-        }
-
-        .logo:hover {
-            animation: glitch 0.3s linear infinite;
-            color: #ff3333;
-        }
-    </style>
-</head>
-<body>
-    <div class="matrix-overlay"></div>
-    <div class="glitch-lines"></div>
-    <div class="background-text"></div>
-    
-    <div class="container">
-        <h1 class="logo">noir</h1>
-        <div class="status">LIVE INTEL FEED ACTIVE</div>
-        <p class="description">
-            Access the most exclusive leaks with your coins.<br>
-            Decentralized. Verified. Real-time updates.
-        </p>
-
-        <div class="stats">
-            <div class="stat-item">
-                <div><span class="number-animate" id="activeUsers">2,481</span></div>
-                <div>Active Users</div>
-            </div>
-            <div class="stat-item">
-                <div><span class="number-animate" id="newLeaks">147</span></div>
-                <div>New Leaks Today</div>
-            </div>
-            <div class="stat-item">
-                <div><span class="number-animate" id="accuracyRate">99.8</span>%</div>
-                <div>Accuracy Rate</div>
-            </div>
-        </div>
-
-        <a href="access.html" class="button">Request Access</a>
-        
-        <div class="links">
-            <a href="https://twitter.com/" target="_blank" class="twitter-link">
-                <i class="fa-brands fa-x-twitter"></i> Twitter
-            </a>
-            <a href="#" target="_blank">CA</a>
-            <a href="#" target="_blank">Github</a>
-            <a href="#" target="_blank">Security</a>
-        </div>
-    </div>
-
-    <script>
-        // Generate random "leaked data" text
-        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+=[]{}|;:,.<>?";
-        const bgText = document.querySelector('.background-text');
-        const textContent = Array.from({length: 1000}, () => {
-            return chars[Math.floor(Math.random() * chars.length)];
-        }).join(' ');
-        bgText.textContent = textContent.repeat(20);
-
-        // Store current values
-        const currentValues = {
-            activeUsers: 2481,
-            newLeaks: 147,
-            accuracyRate: 99.8
-        };
-
-        // Animated numbers that only increase
-        function updateNumber(elementId, increment, interval, isDecimal = false) {
-            const element = document.getElementById(elementId);
-            
-            setInterval(() => {
-                // Add glitch effect
-                element.classList.add('glitch');
-                
-                // Increment the current value
-                switch(elementId) {
-                    case 'activeUsers':
-                        currentValues.activeUsers += Math.floor(Math.random() * increment) + 1;
-                        element.textContent = currentValues.activeUsers.toLocaleString();
-                        break;
-                    case 'newLeaks':
-                        currentValues.newLeaks += Math.floor(Math.random() * increment) + 1;
-                        element.textContent = currentValues.newLeaks.toLocaleString();
-                        break;
-                    case 'accuracyRate':
-                        // Keep accuracy rate within reasonable bounds
-                        if (currentValues.accuracyRate < 99.9) {
-                            currentValues.accuracyRate += (Math.random() * 0.1);
-                            currentValues.accuracyRate = Math.min(99.9, currentValues.accuracyRate);
-                            element.textContent = currentValues.accuracyRate.toFixed(1);
-                        }
-                        break;
-                }
-                
-                // Remove glitch effect after animation
-                setTimeout(() => {
-                    element.classList.remove('glitch');
-                }, 200);
-            }, interval);
-        }
-
-        // Initialize animated numbers with incremental updates
-        updateNumber('activeUsers', 5, 3000); // Increases by 1-5 users every 3s
-        updateNumber('newLeaks', 2, 2000); // Increases by 1-2 leaks every 2s
-        updateNumber('accuracyRate', 0.1, 4000, true); // Slowly increases accuracy until 99.9%
-
-        // Add glitch effect on hover for all animated numbers
-        document.querySelectorAll('.number-animate').forEach(element => {
-            element.addEventListener('mouseover', () => {
-                element.classList.add('glitch');
-                setTimeout(() => {
-                    element.classList.remove('glitch');
-                }, 200);
-            });
-        });
-    </script>
-</body>
-</html>
+            margin-right: 5px<span class="ml-2" /><span class="inline-block w-3 h-3 rounded-full bg-neutral-a12 align-middle mb-[0.1rem]" />
