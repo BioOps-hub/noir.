@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noir</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+        }
+
+        .description {
+            font-size: 20px;
+            line-height: 1.5;
+            color: #888;
+            margin-bottom: 40px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: #fff;
+            color: #000;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 18px;
+            transition: transform 0.2s;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+        }
+
+        .links {
+            margin-top: 40px;
+        }
+
+        .links a {
+            color: #888;
+            text-decoration: none;
+            margin: 0 12px;
+            font-size: 16px;
+        }
+
+        .links a:hover {
+            color: #fff;
+        }
+
+        .coming-soon {
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #fff, #666, #fff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 3s ease infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="logo gradient-text">noir</h1>
+        <p class="description">
+            Experience the future of digital creativity. 
+            A new platform for artists, creators, and visionaries.
+        </p>
+        <a href="#" class="button">Join Waitlist →</a>
+        
+        <div class="links">
+            <a href="#" target="_blank">Twitter</a>
+            <a href="#" target="_blank">Discord</a>
+            <a href="#" target="_blank">About</a>
+        </div>
+        
+        <p class="coming-soon">Launching Soon</p>
+    </div>
+</body>
+</html>
