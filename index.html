@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>noir • exclusive intel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -187,6 +188,26 @@
             color: #ff3333;
         }
 
+        .links a i {
+            margin-right: 5px;
+            font-size: 18px;
+        }
+
+        .twitter-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background: rgba(255, 0, 0, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .twitter-link:hover {
+            background: rgba(255, 0, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+        }
+
         .stats {
             display: flex;
             justify-content: center;
@@ -250,8 +271,8 @@
         <h1 class="logo">noir</h1>
         <div class="status">LIVE INTEL FEED ACTIVE</div>
         <p class="description">
-            Access the most exclusive leak network with your coins.<br>
-            Verified leaks. Decentralized. Real-time updates.
+            Access the most exclusive information network.<br>
+            Verified leaks. Authenticated sources. Real-time updates.
         </p>
 
         <div class="stats">
@@ -272,6 +293,9 @@
         <a href="#" class="button">Request Access</a>
         
         <div class="links">
+            <a href="https://twitter.com/" target="_blank" class="twitter-link">
+                <i class="fa-brands fa-x-twitter"></i> Twitter
+            </a>
             <a href="#" target="_blank">Latest Leaks</a>
             <a href="#" target="_blank">Verified Sources</a>
             <a href="#" target="_blank">Security</a>
@@ -279,70 +303,70 @@
     </div>
 
     <script>
-    // Generate random "leaked data" text
-    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+=[]{}|;:,.<>?";
-    const bgText = document.querySelector('.background-text');
-    const textContent = Array.from({length: 1000}, () => {
-        return chars[Math.floor(Math.random() * chars.length)];
-    }).join(' ');
-    bgText.textContent = textContent.repeat(20);
+        // Generate random "leaked data" text
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+=[]{}|;:,.<>?";
+        const bgText = document.querySelector('.background-text');
+        const textContent = Array.from({length: 1000}, () => {
+            return chars[Math.floor(Math.random() * chars.length)];
+        }).join(' ');
+        bgText.textContent = textContent.repeat(20);
 
-    // Store current values
-    const currentValues = {
-        activeUsers: 2481,
-        newLeaks: 147,
-        accuracyRate: 99.8
-    };
+        // Store current values
+        const currentValues = {
+            activeUsers: 2481,
+            newLeaks: 147,
+            accuracyRate: 99.8
+        };
 
-    // Animated numbers that only increase
-    function updateNumber(elementId, increment, interval, isDecimal = false) {
-        const element = document.getElementById(elementId);
-        
-        setInterval(() => {
-            // Add glitch effect
-            element.classList.add('glitch');
+        // Animated numbers that only increase
+        function updateNumber(elementId, increment, interval, isDecimal = false) {
+            const element = document.getElementById(elementId);
             
-            // Increment the current value
-            switch(elementId) {
-                case 'activeUsers':
-                    currentValues.activeUsers += Math.floor(Math.random() * increment) + 1;
-                    element.textContent = currentValues.activeUsers.toLocaleString();
-                    break;
-                case 'newLeaks':
-                    currentValues.newLeaks += Math.floor(Math.random() * increment) + 1;
-                    element.textContent = currentValues.newLeaks.toLocaleString();
-                    break;
-                case 'accuracyRate':
-                    // Keep accuracy rate within reasonable bounds
-                    if (currentValues.accuracyRate < 99.9) {
-                        currentValues.accuracyRate += (Math.random() * 0.1);
-                        currentValues.accuracyRate = Math.min(99.9, currentValues.accuracyRate);
-                        element.textContent = currentValues.accuracyRate.toFixed(1);
-                    }
-                    break;
-            }
-            
-            // Remove glitch effect after animation
-            setTimeout(() => {
-                element.classList.remove('glitch');
-            }, 200);
-        }, interval);
-    }
+            setInterval(() => {
+                // Add glitch effect
+                element.classList.add('glitch');
+                
+                // Increment the current value
+                switch(elementId) {
+                    case 'activeUsers':
+                        currentValues.activeUsers += Math.floor(Math.random() * increment) + 1;
+                        element.textContent = currentValues.activeUsers.toLocaleString();
+                        break;
+                    case 'newLeaks':
+                        currentValues.newLeaks += Math.floor(Math.random() * increment) + 1;
+                        element.textContent = currentValues.newLeaks.toLocaleString();
+                        break;
+                    case 'accuracyRate':
+                        // Keep accuracy rate within reasonable bounds
+                        if (currentValues.accuracyRate < 99.9) {
+                            currentValues.accuracyRate += (Math.random() * 0.1);
+                            currentValues.accuracyRate = Math.min(99.9, currentValues.accuracyRate);
+                            element.textContent = currentValues.accuracyRate.toFixed(1);
+                        }
+                        break;
+                }
+                
+                // Remove glitch effect after animation
+                setTimeout(() => {
+                    element.classList.remove('glitch');
+                }, 200);
+            }, interval);
+        }
 
-    // Initialize animated numbers with incremental updates
-    updateNumber('activeUsers', 5, 3000); // Increases by 1-5 users every 3s
-    updateNumber('newLeaks', 2, 2000); // Increases by 1-2 leaks every 2s
-    updateNumber('accuracyRate', 0.1, 4000, true); // Slowly increases accuracy until 99.9%
+        // Initialize animated numbers with incremental updates
+        updateNumber('activeUsers', 5, 3000); // Increases by 1-5 users every 3s
+        updateNumber('newLeaks', 2, 2000); // Increases by 1-2 leaks every 2s
+        updateNumber('accuracyRate', 0.1, 4000, true); // Slowly increases accuracy until 99.9%
 
-    // Add glitch effect on hover for all animated numbers
-    document.querySelectorAll('.number-animate').forEach(element => {
-        element.addEventListener('mouseover', () => {
-            element.classList.add('glitch');
-            setTimeout(() => {
-                element.classList.remove('glitch');
-            }, 200);
+        // Add glitch effect on hover for all animated numbers
+        document.querySelectorAll('.number-animate').forEach(element => {
+            element.addEventListener('mouseover', () => {
+                element.classList.add('glitch');
+                setTimeout(() => {
+                    element.classList.remove('glitch');
+                }, 200);
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
