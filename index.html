@@ -103,106 +103,124 @@
         }
 
         /* New Animated Logo Styles */
-        .logo {
-            font-size: 72px;
-            font-weight: 700;
-            margin-bottom: 24px;
-            letter-spacing: -2px;
-            text-transform: lowercase;
-            position: relative;
-            display: inline-block;
-        }
+       .logo {
+    font-size: 72px;
+    font-weight: 700;
+    margin-bottom: 24px;
+    letter-spacing: -2px;
+    text-transform: lowercase;
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(
+        145deg,
+        #000000,
+        #1a1a1a,
+        #333333,
+        #1a1a1a,
+        #000000
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 
+        2px 2px 3px rgba(255,0,0,0.1),
+        -1px -1px 1px rgba(0,0,0,0.8);
+}
 
-        .logo::before,
-        .logo::after {
-            content: 'noir';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            overflow: hidden;
-            background: #fff;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-        }
+.logo::before {
+    content: 'noir';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 0, 0, 0.1),
+        transparent
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: metallic 3s linear infinite;
+}
 
-        .logo .classified-tag {
-            content: "classified";
-            position: absolute;
-            top: -15px;
-            right: -60px;
-            font-size: 14px;
-            color: #ff0000;
-            transform: rotate(30deg);
-            border: 1px solid #ff0000;
-            padding: 2px 8px;
-            border-radius: 3px;
-            background: none;
-            -webkit-background-clip: unset;
-            background-clip: unset;
-        }
+.logo::after {
+    content: 'noir';
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: linear-gradient(
+        45deg,
+        rgba(40, 40, 40, 0.5),
+        rgba(100, 100, 100, 0.5),
+        rgba(40, 40, 40, 0.5)
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: metallic 2s linear infinite reverse;
+}
 
-        .logo::before {
-            left: 2px;
-            text-shadow: -2px 0 red;
-            animation: glitch-1 2s linear infinite reverse;
-        }
+.logo .classified-tag {
+    content: "classified";
+    position: absolute;
+    top: -15px;
+    right: -60px;
+    font-size: 14px;
+    color: #ff0000;
+    transform: rotate(30deg);
+    border: 1px solid #ff0000;
+    padding: 2px 8px;
+    border-radius: 3px;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    text-shadow: none;
+}
 
-        .logo::after {
-            left: -2px;
-            text-shadow: 2px 0 blue;
-            animation: glitch-2 2s linear infinite;
-        }
+@keyframes metallic {
+    0% {
+        background-position: -500% 0;
+    }
+    100% {
+        background-position: 500% 0;
+    }
+}
 
-        @keyframes glitch-1 {
-            0% { clip-path: inset(20% 0 30% 0); }
-            20% { clip-path: inset(65% 0 15% 0); }
-            40% { clip-path: inset(40% 0 53% 0); }
-            60% { clip-path: inset(25% 0 60% 0); }
-            80% { clip-path: inset(75% 0 5% 0); }
-            100% { clip-path: inset(10% 0 85% 0); }
-        }
+.logo-container {
+    position: relative;
+}
 
-        @keyframes glitch-2 {
-            0% { clip-path: inset(25% 0 65% 0); }
-            20% { clip-path: inset(5% 0 85% 0); }
-            40% { clip-path: inset(70% 0 15% 0); }
-            60% { clip-path: inset(15% 0 65% 0); }
-            80% { clip-path: inset(50% 0 30% 0); }
-            100% { clip-path: inset(35% 0 50% 0); }
-        }
+.logo-container::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150%;
+    height: 150%;
+    background: radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 70%);
+    z-index: -1;
+    pointer-events: none;
+}
 
-        .logo:hover {
-            animation: none;
-            transform: scale(1.05);
-            transition: transform 0.3s;
-        }
+.logo:hover {
+    animation: none;
+}
 
-        .logo:hover::before {
-            animation: glitch-1 0.5s linear infinite reverse;
-        }
+.logo:hover::before {
+    background: linear-gradient(
+        45deg,
+        transparent,
+        rgba(255, 0, 0, 0.2),
+        transparent
+    );
+    animation: metallic 1s linear infinite;
+}
 
-        .logo:hover::after {
-            animation: glitch-2 0.5s linear infinite;
-        }
-
-        .logo-container {
-            position: relative;
-        }
-
-        .logo-container::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 150%;
-            height: 150%;
-            background: radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 70%);
-            z-index: -1;
-            pointer-events: none;
-        }
+.logo:hover::after {
+    animation: metallic 1.5s linear infinite reverse;
+}
 
         /* Rest of your existing styles */
                 .description {
