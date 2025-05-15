@@ -10,12 +10,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Courier New', monospace;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
 
         body {
-            background: linear-gradient(45deg, #1a0808, #2d0808, #1a0808);
-            color: #fff;
+            background: #FEF4F0;
+            color: #1a1a1a;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -23,216 +23,49 @@
             justify-content: center;
             padding: 20px;
             position: relative;
-            overflow: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)),
-                repeating-linear-gradient(0deg, transparent 0px, transparent 1px, rgba(255, 0, 0, 0.1) 1px, rgba(255, 0, 0, 0.1) 2px),
-                repeating-linear-gradient(90deg, transparent 0px, transparent 1px, rgba(255, 0, 0, 0.1) 1px, rgba(255, 0, 0, 0.1) 2px);
-            z-index: -1;
-        }
-
-        .matrix-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 50% 50%, 
-                rgba(255, 0, 0, 0.1) 0%, 
-                rgba(20, 0, 0, 0.2) 50%, 
-                transparent 100%);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .glitch-lines {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: repeating-linear-gradient(
-                0deg,
-                transparent 0px,
-                transparent 1px,
-                rgba(255, 0, 0, 0.05) 2px,
-                transparent 3px
-            );
-            background-size: 100% 4px;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .background-text {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            overflow: hidden;
-            z-index: -1;
-            opacity: 0.03;
-            font-family: monospace;
-            font-size: 12px;
-            color: #ff0000;
-            pointer-events: none;
-            transform: rotate(-15deg);
         }
 
         .container {
             max-width: 800px;
             text-align: center;
-            background: rgba(0, 0, 0, 0.6);
+            background: white;
             padding: 40px;
-            border-radius: 15px;
-            border: 1px solid rgba(255, 0, 0, 0.1);
-            backdrop-filter: blur(5px);
-            position: relative;
-            z-index: 1;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(255, 0, 128, 0.1);
         }
 
-        /* New Animated Logo Styles */
-       .logo {
-    font-size: 72px;
-    font-weight: 700;
-    margin-bottom: 24px;
-    letter-spacing: -2px;
-    text-transform: lowercase;
-    position: relative;
-    display: inline-block;
-    background: linear-gradient(
-        145deg,
-        #000000,
-        #1a1a1a,
-        #333333,
-        #1a1a1a,
-        #000000
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    text-shadow: 
-        2px 2px 3px rgba(255,0,0,0.1),
-        -1px -1px 1px rgba(0,0,0,0.8);
-}
+        .logo {
+            font-size: 72px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            letter-spacing: -2px;
+            text-transform: lowercase;
+            color: #FF0080;
+            position: relative;
+        }
 
-.logo::before {
-    content: 'noir';
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: linear-gradient(
-        45deg,
-        transparent,
-        rgba(255, 0, 0, 0.1),
-        transparent
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: metallic 3s linear infinite;
-}
+        .classified-tag {
+            position: absolute;
+            top: -15px;
+            right: -60px;
+            font-size: 14px;
+            color: #FF0080;
+            transform: rotate(30deg);
+            border: 1px solid #FF0080;
+            padding: 2px 8px;
+            border-radius: 3px;
+            background: white;
+        }
 
-.logo::after {
-    content: 'noir';
-    position: absolute;
-    top: 0;
-    left: 0;
-    background: linear-gradient(
-        45deg,
-        rgba(40, 40, 40, 0.5),
-        rgba(100, 100, 100, 0.5),
-        rgba(40, 40, 40, 0.5)
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: metallic 2s linear infinite reverse;
-}
-
-.logo .classified-tag {
-    content: "classified";
-    position: absolute;
-    top: -15px;
-    right: -60px;
-    font-size: 14px;
-    color: #ff0000;
-    transform: rotate(30deg);
-    border: 1px solid #ff0000;
-    padding: 2px 8px;
-    border-radius: 3px;
-    background: none;
-    -webkit-background-clip: unset;
-    background-clip: unset;
-    text-shadow: none;
-}
-
-@keyframes metallic {
-    0% {
-        background-position: -500% 0;
-    }
-    100% {
-        background-position: 500% 0;
-    }
-}
-
-.logo-container {
-    position: relative;
-}
-
-.logo-container::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 150%;
-    height: 150%;
-    background: radial-gradient(circle, rgba(255,0,0,0.1) 0%, transparent 70%);
-    z-index: -1;
-    pointer-events: none;
-}
-
-.logo:hover {
-    animation: none;
-}
-
-.logo:hover::before {
-    background: linear-gradient(
-        45deg,
-        transparent,
-        rgba(255, 0, 0, 0.2),
-        transparent
-    );
-    animation: metallic 1s linear infinite;
-}
-
-.logo:hover::after {
-    animation: metallic 1.5s linear infinite reverse;
-}
-
-        /* Rest of your existing styles */
-                .description {
+        .description {
             font-size: 18px;
             line-height: 1.5;
-            color: #cc9999;
+            color: #666;
             margin-bottom: 40px;
-            font-family: 'Courier New', monospace;
         }
 
         .status {
-            color: #ff3333;
+            color: #FF0080;
             font-size: 14px;
             margin-bottom: 20px;
             display: flex;
@@ -245,66 +78,28 @@
             content: "";
             width: 8px;
             height: 8px;
-            background: #ff0000;
+            background: #FF0080;
             border-radius: 50%;
             animation: blink 1s infinite;
         }
 
         .button {
             display: inline-block;
-            background: linear-gradient(45deg, #660000, #990000);
-            color: #fff;
+            background: #FF0080;
+            color: white;
             padding: 15px 30px;
-            border-radius: 8px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
             font-size: 18px;
             transition: all 0.3s;
-            border: 1px solid rgba(255, 0, 0, 0.3);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .button:hover {
-            transform: scale(1.05);
-            background: linear-gradient(45deg, #990000, #cc0000);
-            box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
-        }
-
-        .links {
-            margin-top: 40px;
-        }
-
-        .links a {
-            color: #cc9999;
-            text-decoration: none;
-            margin: 0 12px;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        .links a:hover {
-            color: #ff3333;
-        }
-
-        .links a i {
-            margin-right: 5px;
-            font-size: 18px;
-        }
-
-        .twitter-link {
-            display: inline-flex;
-            align-items: center;
-            padding: 8px 16px;
-            background: rgba(255, 0, 0, 0.1);
-            border-radius: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .twitter-link:hover {
-            background: rgba(255, 0, 0, 0.2);
             transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+            box-shadow: 0 10px 20px rgba(255, 0, 128, 0.2);
         }
 
         .stats {
@@ -312,32 +107,53 @@
             justify-content: center;
             gap: 30px;
             margin: 30px 0;
-            font-family: 'Courier New', monospace;
         }
 
         .stat-item {
-            background: rgba(255, 0, 0, 0.1);
-            padding: 10px 20px;
-            border-radius: 5px;
-            border: 1px solid rgba(255, 0, 0, 0.2);
+            background: rgba(255, 0, 128, 0.05);
+            padding: 20px;
+            border-radius: 16px;
+            min-width: 140px;
         }
 
-        .number-animate {
-            position: relative;
-            display: inline-block;
+        .stat-item div:first-child {
+            color: #FF0080;
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 5px;
         }
 
-        .number-animate.glitch {
-            animation: numberGlitch 0.2s ease;
+        .stat-item div:last-child {
+            color: #666;
+            font-size: 14px;
         }
 
-        @keyframes numberGlitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); opacity: 0.8; }
-            40% { transform: translate(-2px, -2px); opacity: 0.9; }
-            60% { transform: translate(2px, 2px); opacity: 0.8; }
-            80% { transform: translate(2px, -2px); opacity: 0.9; }
-            100% { transform: translate(0); opacity: 1; }
+        .links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 0.3s;
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: rgba(255, 0, 128, 0.05);
+        }
+
+        .links a:hover {
+            color: #FF0080;
+            background: rgba(255, 0, 128, 0.1);
+        }
+
+        .twitter-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         @keyframes blink {
@@ -345,20 +161,18 @@
             50% { opacity: 0.3; }
             100% { opacity: 1; }
         }
+
+        .number-animate {
+            transition: all 0.3s ease;
+        }
     </style>
 </head>
 <body>
-    <div class="matrix-overlay"></div>
-    <div class="glitch-lines"></div>
-    <div class="background-text"></div>
-    
     <div class="container">
-        <div class="logo-container">
-            <h1 class="logo">
-                noir
-                <span class="classified-tag">classified</span>
-            </h1>
-        </div>
+        <h1 class="logo">
+            noir
+            <span class="classified-tag">classified</span>
+        </h1>
         <div class="status">LIVE INTEL FEED ACTIVE</div>
         <p class="description">
             Access the most exclusive information network.<br>
@@ -393,14 +207,6 @@
     </div>
 
     <script>
-        // Generate random "leaked data" text
-        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+=[]{}|;:,.<>?";
-        const bgText = document.querySelector('.background-text');
-        const textContent = Array.from({length: 1000}, () => {
-            return chars[Math.floor(Math.random() * chars.length)];
-        }).join(' ');
-        bgText.textContent = textContent.repeat(20);
-
         // Store current values
         const currentValues = {
             activeUsers: 2481,
@@ -413,9 +219,6 @@
             const element = document.getElementById(elementId);
             
             setInterval(() => {
-                // Add glitch effect
-                element.classList.add('glitch');
-                
                 // Increment the current value
                 switch(elementId) {
                     case 'activeUsers':
@@ -434,11 +237,6 @@
                         }
                         break;
                 }
-                
-                // Remove glitch effect after animation
-                setTimeout(() => {
-                    element.classList.remove('glitch');
-                }, 200);
             }, interval);
         }
 
@@ -446,16 +244,6 @@
         updateNumber('activeUsers', 5, 3000); // Increases by 1-5 users every 3s
         updateNumber('newLeaks', 2, 2000); // Increases by 1-2 leaks every 2s
         updateNumber('accuracyRate', 0.1, 4000, true); // Slowly increases accuracy until 99.9%
-
-        // Add glitch effect on hover for all animated numbers
-        document.querySelectorAll('.number-animate').forEach(element => {
-            element.addEventListener('mouseover', () => {
-                element.classList.add('glitch');
-                setTimeout(() => {
-                    element.classList.remove('glitch');
-                }, 200);
-            });
-        });
     </script>
 </body>
 </html>
