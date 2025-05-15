@@ -1,0 +1,90 @@
+<body>
+    <div class="matrix-overlay"></div>
+    <div class="glitch-lines"></div>
+    <div class="background-text"></div>
+    
+    <div class="container">
+        <h1 class="logo">noir</h1>
+        <div class="status">LIVE INTEL FEED ACTIVE</div>
+        <p class="description">
+            Access the most exclusive information network.<br>
+            Verified leaks. Authenticated sources. Real-time updates.
+        </p>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div><span class="number-animate" id="activeUsers">2,481</span></div>
+                <div>Active Users</div>
+            </div>
+            <div class="stat-item">
+                <div><span class="number-animate" id="newLeaks">147</span></div>
+                <div>New Leaks Today</div>
+            </div>
+            <div class="stat-item">
+                <div><span class="number-animate" id="accuracyRate">99.8</span>%</div>
+                <div>Accuracy Rate</div>
+            </div>
+        </div>
+
+        <a href="#" class="button">Request Access</a>
+        
+        <div class="links">
+            <a href="#" target="_blank">Latest Leaks</a>
+            <a href="#" target="_blank">Verified Sources</a>
+            <a href="#" target="_blank">Security</a>
+        </div>
+    </div>
+
+    <script>
+        // Generate random "leaked data" text
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+=[]{}|;:,.<>?";
+        const bgText = document.querySelector('.background-text');
+        const textContent = Array.from({length: 1000}, () => {
+            return chars[Math.floor(Math.random() * chars.length)];
+        }).join(' ');
+        bgText.textContent = textContent.repeat(20);
+
+        // Animated numbers
+        function updateNumber(elementId, min, max, interval, isDecimal = false) {
+            const element = document.getElementById(elementId);
+            
+            setInterval(() => {
+                // Add glitch effect
+                element.classList.add('glitch');
+                
+                // Generate random number
+                let newNumber;
+                if (isDecimal) {
+                    newNumber = (Math.random() * (max - min) + min).toFixed(1);
+                } else {
+                    newNumber = Math.floor(Math.random() * (max - min) + min);
+                    newNumber = newNumber.toLocaleString(); // Add commas for thousands
+                }
+                
+                // Update number
+                element.textContent = newNumber;
+                
+                // Remove glitch effect after animation
+                setTimeout(() => {
+                    element.classList.remove('glitch');
+                }, 200);
+            }, interval);
+        }
+
+        // Initialize animated numbers
+        updateNumber('activeUsers', 2300, 2600, 3000); // Active users: 2,300-2,600, updates every 3s
+        updateNumber('newLeaks', 140, 160, 2000); // New leaks: 140-160, updates every 2s
+        updateNumber('accuracyRate', 99.1, 99.9, 4000, true); // Accuracy: 99.1-99.9, updates every 4s
+
+        // Add glitch effect on hover for all animated numbers
+        document.querySelectorAll('.number-animate').forEach(element => {
+            element.addEventListener('mouseover', () => {
+                element.classList.add('glitch');
+                setTimeout(() => {
+                    element.classList.remove('glitch');
+                }, 200);
+            });
+        });
+    </script>
+</body>
+</html>
