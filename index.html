@@ -279,55 +279,70 @@
     </div>
 
     <script>
-        // Generate random "leaked data" text
-        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+=[]{}|;:,.<>?";
-        const bgText = document.querySelector('.background-text');
-        const textContent = Array.from({length: 1000}, () => {
-            return chars[Math.floor(Math.random() * chars.length)];
-        }).join(' ');
-        bgText.textContent = textContent.repeat(20);
+    // Generate random "leaked data" text
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()_+=[]{}|;:,.<>?";
+    const bgText = document.querySelector('.background-text');
+    const textContent = Array.from({length: 1000}, () => {
+        return chars[Math.floor(Math.random() * chars.length)];
+    }).join(' ');
+    bgText.textContent = textContent.repeat(20);
 
-        // Animated numbers
-        function updateNumber(elementId, min, max, interval, isDecimal = false) {
-            const element = document.getElementById(elementId);
+    // Store current values
+    const currentValues = {
+        activeUsers: 2481,
+        newLeaks: 147,
+        accuracyRate: 99.8
+    };
+
+    // Animated numbers that only increase
+    function updateNumber(elementId, increment, interval, isDecimal = false) {
+        const element = document.getElementById(elementId);
+        
+        setInterval(() => {
+            // Add glitch effect
+            element.classList.add('glitch');
             
-            setInterval(() => {
-                // Add glitch effect
-                element.classList.add('glitch');
-                
-                // Generate random number
-                let newNumber;
-                if (isDecimal) {
-                    newNumber = (Math.random() * (max - min) + min).toFixed(1);
-                } else {
-                    newNumber = Math.floor(Math.random() * (max - min) + min);
-                    newNumber = newNumber.toLocaleString(); // Add commas for thousands
-                }
-                
-                // Update number
-                element.textContent = newNumber;
-                
-                // Remove glitch effect after animation
-                setTimeout(() => {
-                    element.classList.remove('glitch');
-                }, 200);
-            }, interval);
-        }
+            // Increment the current value
+            switch(elementId) {
+                case 'activeUsers':
+                    currentValues.activeUsers += Math.floor(Math.random() * increment) + 1;
+                    element.textContent = currentValues.activeUsers.toLocaleString();
+                    break;
+                case 'newLeaks':
+                    currentValues.newLeaks += Math.floor(Math.random() * increment) + 1;
+                    element.textContent = currentValues.newLeaks.toLocaleString();
+                    break;
+                case 'accuracyRate':
+                    // Keep accuracy rate within reasonable bounds
+                    if (currentValues.accuracyRate < 99.9) {
+                        currentValues.accuracyRate += (Math.random() * 0.1);
+                        currentValues.accuracyRate = Math.min(99.9, currentValues.accuracyRate);
+                        element.textContent = currentValues.accuracyRate.toFixed(1);
+                    }
+                    break;
+            }
+            
+            // Remove glitch effect after animation
+            setTimeout(() => {
+                element.classList.remove('glitch');
+            }, 200);
+        }, interval);
+    }
 
-        // Initialize animated numbers
-        updateNumber('activeUsers', 2300, 2600, 3000); // Active users: 2,300-2,600, updates every 3s
-        updateNumber('newLeaks', 140, 160, 2000); // New leaks: 140-160, updates every 2s
-        updateNumber('accuracyRate', 99.1, 99.9, 4000, true); // Accuracy: 99.1-99.9, updates every 4s
+    // Initialize animated numbers with incremental updates
+    updateNumber('activeUsers', 5, 3000); // Increases by 1-5 users every 3s
+    updateNumber('newLeaks', 2, 2000); // Increases by 1-2 leaks every 2s
+    updateNumber('accuracyRate', 0.1, 4000, true); // Slowly increases accuracy until 99.9%
 
-        // Add glitch effect on hover for all animated numbers
-        document.querySelectorAll('.number-animate').forEach(element => {
-            element.addEventListener('mouseover', () => {
-                element.classList.add('glitch');
-                setTimeout(() => {
-                    element.classList.remove('glitch');
-                }, 200);
-            });
+    // Add glitch effect on hover for all animated numbers
+    document.querySelectorAll('.number-animate').forEach(element => {
+        element.addEventListener('mouseover', () => {
+            element.classList.add('glitch');
+            setTimeout(() => {
+                element.classList.remove('glitch');
+            }, 200);
         });
-    </script>
+    });
+</script>
 </body>
 </html>
