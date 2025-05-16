@@ -389,9 +389,22 @@
     </style>
 </head>
 <body>
-    <!-- Add this at the beginning of your body tag -->
+    <!-- Update the loading screen section -->
 <div class="loading-screen">
     <svg class="loading-text" viewBox="0 0 400 100">
+        <defs>
+            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" style="stop-color:#FF0080;stop-opacity:1" />
+                <stop offset="100%" style="stop-color:#FF69B4;stop-opacity:1" />
+            </linearGradient>
+            <filter id="glow">
+                <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+                <feMerge>
+                    <feMergeNode in="coloredBlur"/>
+                    <feMergeNode in="SourceGraphic"/>
+                </feMerge>
+            </filter>
+        </defs>
         <path id="curve" d="M0,50 C150,50 250,50 400,50" style="fill: transparent"/>
         <text class="flowing-text">
             <textPath href="#curve">
@@ -399,9 +412,10 @@
             </textPath>
         </text>
     </svg>
+    <div class="loading-particles"></div>
 </div>
 
-<!-- Add this to your style section -->
+<!-- Add these styles -->
 <style>
     .loading-screen {
         position: fixed;
@@ -414,57 +428,150 @@
         justify-content: center;
         align-items: center;
         z-index: 9999;
-        animation: fadeOut 0.5s ease-out 3s forwards;
+        animation: fadeOut 1s ease-out 3.5s forwards;
     }
 
     .loading-text {
         width: 300px;
         height: 100px;
+        filter: url(#glow);
     }
 
     .flowing-text {
-        fill: white;
+        fill: url(#gradient);
         font-size: 72px;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         font-weight: 700;
-        animation: flowText 2.5s ease-in-out forwards;
+        animation: flowText 3s ease-in-out forwards;
+        opacity: 0;
+    }
+
+    .loading-particles {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+    }
+
+    .particle {
+        position: absolute;
+        background: #FF0080;
+        border-radius: 50%;
+        pointer-events: none;
+        opacity: 0;
     }
 
     @keyframes flowText {
         0% {
-            offset-distance: 0%;
             opacity: 0;
+            transform: translateY(20px);
         }
         20% {
             opacity: 1;
+            transform: translateY(0);
         }
         80% {
             opacity: 1;
+            transform: translateY(0);
         }
         100% {
-            offset-distance: 100%;
+            opacity: 1;
+            transform: translateY(0) scale(0.95);
+        }
+    }
+
+    @keyframes particleFloat {
+        0% {
+            transform: translate(0, 0) scale(1);
+            opacity: 0;
+        }
+        50% {
+            opacity: 0.8;
+        }
+        100% {
+            transform: translate(var(--tx), var(--ty)) scale(0);
             opacity: 0;
         }
     }
 
     @keyframes fadeOut {
-        to {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+        100% {
             opacity: 0;
+            transform: scale(1.1);
             visibility: hidden;
+        }
+    }
+
+    /* Add transition styles for main content */
+    .container {
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInContent 1s ease-out 3.5s forwards;
+    }
+
+    @keyframes fadeInContent {
+        to {
+            opacity: 1;
+            transform: translateY(0);
         }
     }
 </style>
 
-<!-- Add this to your script section -->
+<!-- Add this JavaScript -->
 <script>
+    function createParticles() {
+        const container = document.querySelector('.loading-particles');
+        const particleCount = 50;
+
+        for (let i = 0; i < particleCount; i++) {
+            setTimeout(() => {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                
+                // Random size
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Random position
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Random movement
+                const tx = (Math.random() - 0.5) * 200;
+                const ty = (Math.random() - 0.5) * 200;
+                particle.style.setProperty('--tx', `${tx}px`);
+                particle.style.setProperty('--ty', `${ty}px`);
+                
+                // Animation
+                particle.style.animation = `particleFloat ${Math.random() * 2 + 1}s ease-out forwards`;
+                
+                container.appendChild(particle);
+                
+                // Remove particle after animation
+                setTimeout(() => {
+                    particle.remove();
+                }, 3000);
+            }, i * 50);
+        }
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-        // Hide scroll while loading
         document.body.style.overflow = 'hidden';
+        createParticles();
         
-        // After animation completes
+        // Create new particles periodically
+        const particleInterval = setInterval(createParticles, 1000);
+        
         setTimeout(() => {
+            clearInterval(particleInterval);
             document.body.style.overflow = '';
-            document.querySelector('.loading-screen').style.display = 'none';
+            setTimeout(() => {
+                document.querySelector('.loading-screen').style.display = 'none';
+            }, 1000);
         }, 3500);
     });
 </script>
