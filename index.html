@@ -391,25 +391,25 @@
 <body>
     <!-- Update the loading screen section -->
 <div class="loading-screen">
-   <svg class="loading-text" viewBox="0 0 3600 600">
+   <svg class="loading-text" viewBox="0 0 1200 200">
     <defs>
         <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
             <stop offset="0%" style="stop-color:#FF0080;stop-opacity:1" />
             <stop offset="100%" style="stop-color:#FF69B4;stop-opacity:1" />
         </linearGradient>
         <filter id="glow">
-            <feGaussianBlur stdDeviation="12" result="coloredBlur"/> <!-- Increased blur for larger text -->
+            <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
             <feMerge>
                 <feMergeNode in="coloredBlur"/>
                 <feMergeNode in="SourceGraphic"/>
             </feMerge>
         </filter>
     </defs>
-    <path id="curve" d="M0,300 C750,300 1050,300 1800,300" style="fill: transparent"/>
+    <path id="curve" d="M0,100 C250,100 350,100 600,100" style="fill: transparent"/>
     <text class="flowing-text">
         <textPath href="#curve">noir</textPath>
     </text>
-    <text class="tagline" x="1860" y="300">Crypto's Goon Economy</text>
+    <text class="tagline" x="620" y="100">Crypto's Goon Economy</text>
 </svg>
     <div class="loading-particles"></div>
 </div>
@@ -417,14 +417,14 @@
 <!-- Add these styles -->
 <style>
     .loading-text {
-    width: 3600px; /* Increased width to accommodate tagline */
-    height: 600px;
+    width: 1200px; /* Increased width to accommodate tagline */
+    height: 200px;
     filter: url(#glow);
 }
 
 .tagline {
     fill: #FF69B4;
-    font-size: 126px;
+    font-size: 42px;
     font-weight: 500;
     opacity: 0;
     animation: revealTagline 0.5s ease-out 1.5s forwards;
@@ -455,14 +455,14 @@
     }
 
     .loading-text {
-        width: 3600px;
-        height: 600px;
+        width: 1200px;
+        height: 200px;
         filter: url(#glow);
     }
 
     .flowing-text {
         fill: url(#gradient);
-        font-size: 368px;
+        font-size: 120px;
         font-weight: 700;
         animation: flowText 3s ease-in-out forwards;
         opacity: 0;
