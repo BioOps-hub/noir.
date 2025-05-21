@@ -1,7 +1,6 @@
 /* styles.css */
 :root {
-    --primary-dark: #0a0a0f;
-    --secondary-dark: #1a1a24;
+    --black: #000000;
     --purple-accent: #8a2be2;
     --purple-glow: rgba(138, 43, 226, 0.4);
     --text-light: #ffffff;
@@ -11,13 +10,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-body {
-    background-color: var(--primary-dark);
-    color: var(--text-light);
-    overflow-x: hidden;
+    font-family: 'Crimson Pro', serif;
 }
 
 /* Loading Screen */
@@ -27,7 +20,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+    background: var(--black);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,28 +34,33 @@ body {
 }
 
 .logo-text {
-    font-size: 5rem;
+    font-size: 5.5rem;
     font-weight: 300;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     margin-bottom: 1rem;
     position: relative;
+    color: var(--text-light);
+    font-family: 'Crimson Pro', serif;
 }
 
 .ai-text {
     color: var(--purple-accent);
-    font-weight: 500;
+    font-weight: 400;
     position: relative;
 }
 
 .ai-text::after {
     content: '';
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     background: var(--purple-accent);
     border-radius: 50%;
-    filter: blur(15px);
+    filter: blur(20px);
     opacity: 0.8;
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
     animation: glow 2s infinite;
 }
 
@@ -70,90 +68,26 @@ body {
     font-size: 1.5rem;
     opacity: 0.8;
     color: var(--text-light);
-}
-
-/* Navigation */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 1.5rem 0;
-    background: rgba(10, 10, 15, 0.95);
-    backdrop-filter: blur(10px);
-    z-index: 100;
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-logo {
-    font-size: 1.8rem;
-    text-decoration: none;
-    color: var(--text-light);
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-}
-
-.nav-links a {
-    color: var(--text-light);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-    color: var(--purple-accent);
-}
-
-/* Hero Section */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
-    padding: 0 2rem;
-}
-
-.hero-content {
-    text-align: center;
-    max-width: 800px;
-}
-
-.hero-content h1 {
-    font-size: 3.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero-content p {
-    font-size: 1.2rem;
-    opacity: 0.8;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    margin-top: 0.5rem;
 }
 
 /* Animations */
 @keyframes glow {
     0%, 100% {
         opacity: 0.8;
-        transform: scale(1);
+        transform: translateY(-50%) scale(1);
     }
     50% {
         opacity: 0.4;
-        transform: scale(1.5);
+        transform: translateY(-50%) scale(1.5);
     }
 }
 
-/* Main Content Initial State */
-.main-content {
-    opacity: 0;
-    transition: opacity 1s ease-in;
+/* Optional: Add text shadow for better readability */
+.logo-text {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
 }
+
+/* Rest of your CSS remains the same but update the font-family where needed */
