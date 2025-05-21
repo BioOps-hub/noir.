@@ -1,11 +1,9 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GoonerAI - AI Powered Goon Search Engine</title>
-    <!-- Add Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -14,10 +12,27 @@
     <div class="loading-screen" id="loading-screen">
         <div class="logo-container">
             <h1 class="logo-text">Gooner<span class="ai-text">AI</span></h1>
+            <div class="loading-animation">
+                <div class="scan-line"></div>
+            </div>
             <p class="tagline">AI powered goon search engine</p>
         </div>
     </div>
 
-    <!-- Rest of your HTML remains the same -->
+    <!-- Main Content -->
+    <div class="main-content" id="main-content">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="nav-logo">Gooner<span class="ai-text">AI</span></a>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#ca">CA</a></li>
+                    <li><a href="#docs">Docs</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <script src="main.js"></script>
 </body>
 </html>
