@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SynthesAI - AI Powered Chemical Synthesis</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chemdoodle-web@9.5.0/install/ChemDoodleWeb.css">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chemdoodle-web@9.5.0/install/ChemDoodleWeb.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -16,119 +14,32 @@
             <h1 class="logo-text">Synthes<span class="ai-text">AI</span></h1>
             <p class="tagline">AI powered chemical synthesis</p>
         </div>
-        <div class="loading-bar">
-            <div class="loading-progress"></div>
-        </div>
     </div>
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="logo">Synthes<span class="ai-text">AI</span></a>
-            <ul class="nav-links">
-                <li><a href="#" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#documentation">Documentation</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-
     <!-- Main Content -->
-    <main>
+    <div class="main-content" id="main-content">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="#" class="nav-logo">Synthes<span class="ai-text">AI</span></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#editor">Editor</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+
         <!-- Hero Section -->
-        <section class="hero section">
-            <div class="container">
-                <h1>Revolutionizing Chemical Synthesis</h1>
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <h1>Transform Chemical Synthesis</h1>
                 <p>Harness the power of AI for intelligent retrosynthetic analysis</p>
             </div>
         </section>
+    </div>
 
-        <!-- Molecular Editor Section -->
-        <section class="editor-section section">
-            <div class="container">
-                <h2>Design Your Molecule</h2>
-                <div class="editor-container">
-                    <canvas id="molecule-editor"></canvas>
-                    <div class="editor-controls">
-                        <button id="clear-canvas" class="btn">Clear</button>
-                        <button id="undo" class="btn">Undo</button>
-                        <button id="generate-route" class="btn primary">Generate Route</button>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Results Section -->
-        <section class="results-section section hidden" id="results-section">
-            <div class="container">
-                <h2>Synthesis Route</h2>
-                <div id="loading-spinner" class="hidden">
-                    <div class="spinner"></div>
-                    <p>Analyzing synthesis pathways...</p>
-                </div>
-                <div id="results-container"></div>
-                <div class="export-controls">
-                    <button id="export-pdf" class="btn">Export as PDF</button>
-                    <button id="save-route" class="btn">Save Route</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about-section section">
-            <div class="container">
-                <h2>About SynthesAI</h2>
-                <div class="features">
-                    <div class="feature-card">
-                        <div class="feature-icon">🧪</div>
-                        <h3>Intelligent Analysis</h3>
-                        <p>Advanced AI algorithms for accurate retrosynthetic planning</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">⚡</div>
-                        <h3>Real-time Processing</h3>
-                        <p>Get instant synthesis routes for your molecules</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">📊</div>
-                        <h3>Detailed Reports</h3>
-                        <p>Comprehensive analysis with step-by-step procedures</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>SynthesAI</h3>
-                    <p>Advancing chemical synthesis through artificial intelligence</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#documentation">Documentation</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact</h3>
-                    <p>Email: contact@synthesai.com</p>
-                    <p>GitHub: <a href="https://github.com/yourusername/synthesai">SynthesAI</a></p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 SynthesAI. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script src="js/main.js"></script>
-    <script src="js/editor.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
