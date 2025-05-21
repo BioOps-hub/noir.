@@ -13,16 +13,4 @@ document.addEventListener('DOMContentLoaded', () => {
             loadingScreen.style.display = 'none';
         }, 1000);
     }, 3000);
-
-    // Navigation highlight effect
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            link.style.textShadow = `0 0 10px ${getComputedStyle(document.documentElement)
-                .getPropertyValue('--purple-accent')}`;
-        });
-        link.addEventListener('mouseleave', () => {
-            link.style.textShadow = 'none';
-        });
-    });
 });
