@@ -4,6 +4,7 @@
     --purple-accent: #8a2be2;
     --purple-glow: rgba(138, 43, 226, 0.4);
     --text-light: #ffffff;
+    --scan-color: rgba(138, 43, 226, 0.2);
 }
 
 * {
@@ -11,6 +12,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Crimson Pro', serif;
+}
+
+body {
+    background: var(--black);
+    color: var(--text-light);
+    overflow-x: hidden;
 }
 
 /* Loading Screen */
@@ -31,6 +38,7 @@
 
 .logo-container {
     text-align: center;
+    position: relative;
 }
 
 .logo-text {
@@ -40,7 +48,6 @@
     margin-bottom: 1rem;
     position: relative;
     color: var(--text-light);
-    font-family: 'Crimson Pro', serif;
 }
 
 .ai-text {
@@ -49,45 +56,103 @@
     position: relative;
 }
 
-.ai-text::after {
-    content: '';
+/* Loading Animation */
+.loading-animation {
+    height: 2px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.scan-line {
     position: absolute;
-    width: 25px;
-    height: 25px;
-    background: var(--purple-accent);
-    border-radius: 50%;
-    filter: blur(20px);
-    opacity: 0.8;
-    right: -10px;
-    top: 50%;
-    transform: translateY(-50%);
-    animation: glow 2s infinite;
+    height: 100%;
+    width: 100px;
+    background: linear-gradient(90deg, 
+        transparent,
+        var(--purple-accent),
+        transparent
+    );
+    animation: scan 2s infinite;
+}
+
+@keyframes scan {
+    0% {
+        left: -100px;
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        left: 100%;
+        opacity: 0;
+    }
 }
 
 .tagline {
     font-size: 1.5rem;
-    opacity: 0.8;
     color: var(--text-light);
+    opacity: 0.8;
     font-weight: 300;
     letter-spacing: 0.5px;
-    margin-top: 0.5rem;
 }
 
-/* Animations */
-@keyframes glow {
-    0%, 100% {
-        opacity: 0.8;
-        transform: translateY(-50%) scale(1);
-    }
-    50% {
-        opacity: 0.4;
-        transform: translateY(-50%) scale(1.5);
-    }
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(138, 43, 226, 0.1);
 }
 
-/* Optional: Add text shadow for better readability */
-.logo-text {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-/* Rest of your CSS remains the same but update the font-family where needed */
+.nav-logo {
+    font-size: 2rem;
+    text-decoration: none;
+    color: var(--text-light);
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+}
+
+.nav-links a:hover {
+    background: rgba(138, 43, 226, 0.1);
+    color: var(--purple-accent);
+}
+
+/* Main Content Initial State */
+.main-content {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
