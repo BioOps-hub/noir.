@@ -13,7 +13,18 @@
 
         body {
             font-family: 'Comic Sans MS', 'Arial', sans-serif;
-            background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 50%, #fbcfe8 100%);
+            /* Unique, aesthetic, dreamy Barbie-inspired background */
+            background:
+                /* Soft pink gradient overlay */
+                linear-gradient(135deg, #ffeef8 0%, #ffb6d5 100%),
+                /* Subtle sparkle overlay */
+                url('https://www.transparenttextures.com/patterns/stardust.png'),
+                /* Barbie dolls collage or pastel art (replace with your own for more uniqueness) */
+                url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1500&q=80');
+            background-blend-mode: lighten, lighten, normal;
+            background-repeat: repeat, repeat, no-repeat;
+            background-size: cover, auto, cover;
+            background-position: center center, top left, center center;
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -219,76 +230,23 @@
 
         .right-section {
             display: flex;
-            justify-content: center;
+            justify-content: flex-end;
             align-items: center;
+            margin-right: -100px; /* This will push the image further right */
         }
 
-        .image-placeholder {
-    width: 800px;  /* Changed from 400px */
-    height: 800px; /* Changed from 400px */
-    background: linear-gradient(135deg, #87ceeb, #98fb98, #f0e68c);
-    border-radius: 30px;
-    border: 6px solid #1f2937;
-    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: container-bob 4s ease-in-out infinite;
-}
+    
+
         @keyframes container-bob {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-10px) rotate(1deg); }
         }
 
-        /* Enhanced background elements */
-        .bg-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
+       
 
-        .cloud {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 30px;
-            border: 2px solid #e5e7eb;
-            animation: cloud-float 6s ease-in-out infinite;
-        }
+       
 
-        .cloud:nth-child(1) {
-            top: 30px;
-            left: 30px;
-            width: 80px;
-            height: 40px;
-            animation-delay: 0s;
-        }
-
-        .cloud:nth-child(2) {
-            top: 50px;
-            right: 40px;
-            width: 60px;
-            height: 30px;
-            animation-delay: 2s;
-        }
-
-        @keyframes cloud-float {
-            0%, 100% { transform: translateX(0); }
-            50% { transform: translateX(10px); }
-        }
-
-        .hills {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 100px;
-            background: linear-gradient(to top, #22c55e, #4ade80, #86efac);
-            border-radius: 50% 50% 0 0;
-        }
+       
 
         .sparkles {
             position: absolute;
@@ -319,16 +277,16 @@
 
         /* Custom Image Animation */
         .custom-character {
-    width: 600px;    /* Changed from 300px */
-    height: auto;
-    max-height: 500px; /* Changed from 250px */
-    object-fit: contain;
-    position: relative;
-    z-index: 10;
-    border-radius: 20px;
-    animation: logo-dance 3s ease-in-out infinite;
-    filter: drop-shadow(0 10px 25px rgba(255, 105, 180, 0.4));
-}
+            width: 600px;
+            height: auto;
+            max-height: 250px;
+            object-fit: contain;
+            position: relative;
+            z-index: 10;
+            border-radius: 20px;
+            animation: logo-dance 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 25px rgba(255, 105, 180, 0.4));
+        }
 
         @keyframes logo-dance {
             0%, 100% { 
@@ -435,13 +393,13 @@
             }
 
             .image-placeholder {
-                width: 640px;
-                height: 640px;
+                width: 800px;
+                height: 800px;
             }
 
             .custom-character {
-                width: 500px;
-                max-height: 400px;
+                width: 800px;
+                max-height: 800px;
             }
 
             .container {
@@ -449,7 +407,7 @@
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 768px) {
             .main-title {
                 font-size: 2.2rem;
             }
@@ -459,13 +417,13 @@
             }
 
             .image-placeholder {
-                width: 560px;
-                height: 560px;
+                width: 90vw;
+                height: auto;
             }
 
             .custom-character {
-                width: 400px;
-                max-height: 320px;
+                width: 85vw;
+                max-height: none;
             }
 
             .contract-section {
@@ -492,35 +450,40 @@
     <div class="scrolling-banner">
         <div class="scrolling-container">
             <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC 
             </div>
             <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
-
     <!-- Main Content -->
     <div class="container">
         <div class="main-content">
             <div class="left-section">
                 <div class="social-icons">
                     <!-- Twitter/X Icon -->
-                    <div class="social-icon">
+                    <a class="social-icon" href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                         <svg width="28" height="28" viewBox="0 0 24 24" fill="#ff1493">
                             <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
                         </svg>
-                    </div>
+                    </a>
                     
-                    <!-- DEX Screener Icon - Actual Logo -->
-                            <div class="social-icon">
-                                <svg width="28" height="28" viewBox="0 0 100 100" fill="#ff1493">
-                                      <path d="M20 25 C25 15, 40 10, 50 15 C60 10, 75 15, 80 25 C85 30, 85 35, 80 40 L75 45 C80 50, 85 55, 80 65 C75 70, 70 75, 65 80 L60 85 C55 90, 50 95, 50 95 C50 95, 45 90, 40 85 L35 80 C30 75, 25 70, 20 65 C15 55, 20 50, 25 45 L20 40 C15 35, 15 30, 20 25 Z M35 35 C40 30, 45 35, 45 40 C45 45, 40 50, 35 45 C30 40, 30 35, 35 35 Z M65 35 C70 35, 70 40, 65 45 C60 50, 55 45, 55 40 C55 35, 60 30, 65 35 Z M50 50 C45 55, 40 60, 45 70 C50 75, 55 70, 60 60 C55 55, 50 50, 50 50 Z"/>
-                                </svg>
-</div>
+                    <!-- DEX Screener Icon - Actual Logo, styled as a link -->
+                    <a class="social-icon" href="https://dexscreener.com/" target="_blank" rel="noopener noreferrer" aria-label="DEX Screener">
+                        <svg width="28" height="28" viewBox="0 0 32 32" fill="#ff1493">
+                            <g>
+                                <rect x="2" y="22" width="4" height="8" rx="2"/>
+                                <rect x="8" y="16" width="4" height="14" rx="2"/>
+                                <rect x="14" y="10" width="4" height="20" rx="2"/>
+                                <rect x="20" y="6" width="4" height="24" rx="2"/>
+                                <rect x="26" y="2" width="4" height="28" rx="2"/>
+                            </g>
+                        </svg>
+                    </a>
                 </div>
                 
-                <h1 class="main-title">The FCC on Solana.</h1>
+                <h1 class="main-title">The Flat Chest Community on Solana.</h1>
                 
                 <div class="contract-section">
                     <div class="contract-label">CA:</div>
@@ -535,7 +498,7 @@
             </div>
 
             <div class="right-section">
-                <div class="image-placeholder">
+                <div class="image-placeholder" style="width:700px; max-width:1000px; margin-right:-120px; position:relative;">
                     <div class="bg-elements">
                         <div class="cloud"></div>
                         <div class="cloud"></div>
@@ -548,7 +511,7 @@
                         <div class="sparkle"></div>
                     </div>
                     <!-- Your FCC image with animation -->
-                    <img src="https://i.ibb.co/yF0MMNhB/fccflatchest.jpg" alt="FCC Flat Chest Community" class="custom-character">
+                    <img src="https://i.ibb.co/yF0MMNhB/fccflatchest.jpg" alt="FCC Flat Chest Community" class="custom-character" style="width:700px; max-width:1000px;">
                 </div>
             </div>
         </div>
@@ -558,10 +521,10 @@
     <div class="scrolling-banner bottom-banner">
         <div class="scrolling-container">
             <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
