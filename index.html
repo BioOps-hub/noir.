@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FCC on Solana</title>
     <style>
+        
         * {
             margin: 0;
             padding: 0;
@@ -505,6 +506,65 @@
     <div class="container">
         <div class="main-content">
             <div class="left-section">
+                <!-- Animated Chart Section -->
+<div class="chart-container">
+    <div class="chart-header">
+        <div class="chart-title">📈 $FCC Chart</div>
+        <div class="price-display">
+            <div class="price-value">$0.0420</div>
+            <div class="price-change">+694.20% 🚀</div>
+        </div>
+    </div>
+    
+    <div class="chart-area">
+        <svg class="chart-line" viewBox="0 0 400 160">
+            <defs>
+                <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#4ade80;stop-opacity:0.8" />
+                    <stop offset="100%" style="stop-color:#4ade80;stop-opacity:0.1" />
+                </linearGradient>
+            </defs>
+            
+            <!-- Animated price path that goes mostly up -->
+            <path class="chart-path" d="M0,140 Q50,120 80,100 T160,80 Q200,60 240,40 T320,20 Q360,15 400,10">
+                <animate attributeName="d" 
+                    values="M0,140 Q50,120 80,100 T160,80 Q200,60 240,40 T320,20 Q360,15 400,10;
+                            M0,140 Q50,130 80,110 T160,85 Q200,70 240,50 T320,25 Q360,20 400,15;
+                            M0,140 Q50,125 80,105 T160,82 Q200,65 240,45 T320,22 Q360,17 400,12;
+                            M0,140 Q50,120 80,100 T160,80 Q200,60 240,40 T320,20 Q360,15 400,10"
+                    dur="6s" 
+                    repeatCount="indefinite"/>
+            </path>
+            
+            <!-- Fill area under the line -->
+            <path class="chart-fill" d="M0,140 Q50,120 80,100 T160,80 Q200,60 240,40 T320,20 Q360,15 400,10 L400,160 L0,160 Z">
+                <animate attributeName="d" 
+                    values="M0,140 Q50,120 80,100 T160,80 Q200,60 240,40 T320,20 Q360,15 400,10 L400,160 L0,160 Z;
+                            M0,140 Q50,130 80,110 T160,85 Q200,70 240,50 T320,25 Q360,20 400,15 L400,160 L0,160 Z;
+                            M0,140 Q50,125 80,105 T160,82 Q200,65 240,45 T320,22 Q360,17 400,12 L400,160 L0,160 Z;
+                            M0,140 Q50,120 80,100 T160,80 Q200,60 240,40 T320,20 Q360,15 400,10 L400,160 L0,160 Z"
+                    dur="6s" 
+                    repeatCount="indefinite"/>
+            </path>
+        </svg>
+        
+        <!-- Floating up arrows -->
+        <div class="chart-arrows">
+            <div class="arrow-up">⬆️</div>
+            <div class="arrow-up">📈</div>
+            <div class="arrow-up">🚀</div>
+        </div>
+        
+        <!-- Moon and rocket -->
+        <div class="moon-rocket">🌙🚀</div>
+        
+        <!-- Diamond hands -->
+        <div class="diamond-hands">
+            <span>💎</span>
+            <span>🙌</span>
+        </div>
+    </div>
+</div>
                 <div class="social-icons">
                     <!-- Twitter/X Icon -->
                     <div class="social-icon">
