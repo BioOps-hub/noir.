@@ -18,7 +18,7 @@
             overflow-x: hidden;
         }
 
-        /* Background Chart Canvas Styles */
+        /* Background Chart Canvas */
         #bgCanvas {
             position: fixed;
             top: 0;
@@ -39,31 +39,17 @@
             position: relative;
             box-shadow: 0 4px 20px rgba(255, 20, 147, 0.4);
             border-top: 3px solid #fff;
-        }
-
-        .scrolling-banner.bottom-banner {
             border-bottom: 3px solid #fff;
-            margin-top: 40px;
         }
 
         @keyframes gradient-shift {
-            0% { background-position: 0% 50%; }
+            0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
         }
 
         .scrolling-container {
             display: flex;
-            animation: scroll-text 10s linear infinite;
-        }
-
-        .scrolling-banner.bottom-banner .scrolling-container {
-            animation-delay: 5s;
-        }
-
-        @keyframes scroll-text {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
+            animation: scroll-infinite 15s linear infinite;
         }
 
         .scrolling-text {
@@ -72,107 +58,141 @@
             font-size: 2rem;
             font-weight: 900;
             color: white;
+            text-shadow: 3px 3px 0px #ff1493, -1px -1px 0px #ff69b4;
+            letter-spacing: 4px;
+            padding-right: 50px;
         }
 
-        /* Main Content Styles */
+        @keyframes scroll-infinite {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
+            min-height: calc(100vh - 120px);
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Floating decorative elements */
+        .float-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 2rem;
+            color: rgba(255, 182, 193, 0.6);
+            animation: float-heart 8s ease-in-out infinite;
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 80%; animation-delay: 2s; }
+        .heart:nth-child(3) { left: 60%; animation-delay: 4s; }
+        .heart:nth-child(4) { left: 30%; animation-delay: 6s; }
+
+        @keyframes float-heart {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10%, 90% { opacity: 1; }
+            50% { transform: translateY(-10vh) rotate(180deg); }
+        }
+
         .main-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
+            gap: 80px;
             align-items: center;
-            padding: 100px 50px;
-            gap: 60px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .left-section {
+            padding: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #fff, #ffeef8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: 4px solid #ff69b4;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .social-icon:hover {
+            transform: translateY(-8px) scale(1.1);
+            box-shadow: 0 15px 35px rgba(255, 20, 147, 0.5);
+            animation: none;
         }
 
         .main-title {
-            font-size: 3rem;
-            color: #db2777;
-            text-shadow: 2px 2px 8px rgba(219, 39, 119, 0.5);
+            font-size: 4rem;
+            font-weight: 900;
+            color: #8b1538;
+            line-height: 1.1;
+            margin-bottom: 40px;
+            font-family: 'Comic Sans MS', cursive;
+            text-shadow: 4px 4px 0px #ff69b4, 8px 8px 0px rgba(255, 105, 180, 0.3);
+            animation: title-bounce 3s ease-in-out infinite;
         }
 
-        .main-subtitle {
-            font-size: 1.25rem;
-            color: #9333ea;
-            margin-top: 15px;
-            line-height: 1.6;
+        @keyframes title-bounce {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            25% { transform: translateY(-5px) rotate(-1deg); }
+            75% { transform: translateY(-3px) rotate(1deg); }
         }
 
-        .cta-button {
-            display: inline-block;
-            margin-top: 25px;
-            padding: 15px 30px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: white;
-            background: linear-gradient(135deg, #ec4899, #db2777);
-            border: none;
-            border-radius: 25px;
-            cursor: pointer;
-            box-shadow: 0 10px 20px rgba(219, 39, 119, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-decoration: none;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(219, 39, 119, 0.4);
-            animation: none;
-        }
-
-        /* Features Section */
-        .features {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 50px;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            margin: 50px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 30px;
-        }
-
-        .feature-item {
-            background: #fff;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px) scale(1.03);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            animation: none;
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            color: #ec4899;
-            margin-bottom: 15px;
-        }
-
-        .feature-title {
-            font-size: 1.5rem;
-            color: #be185d;
-            margin-bottom: 10px;
-        }
-
-        .feature-desc {
-            font-size: 1rem;
-            color: #6b21a8;
-            line-height: 1.5;
-        }
-
-        /* Contract Section */
         .contract-section {
-            text-align: center;
-            margin: 60px 20px;
+            background: linear-gradient(135deg, #c7f9cc, #80ed99, #57cc99);
+            padding: 25px;
+            border-radius: 25px;
+            border: 4px solid #22c55e;
+            box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);
+            margin-top: 40px;
+            position: relative;
+            animation: contract-glow 2s ease-in-out infinite alternate;
         }
 
-        .contract-section h2 {
-            font-size: 2rem;
-            color: #db2777;
-            margin-bottom: 20px;
+        @keyframes contract-glow {
+            0% { box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3); }
+            100% { box-shadow: 0 10px 30px rgba(34, 197, 94, 0.6); }
+        }
+
+        .contract-label {
+            font-size: 1.1rem;
+            color: #15803d;
+            font-weight: 900;
+            margin-bottom: 12px;
+            font-family: 'Comic Sans MS', cursive;
         }
 
         .contract-address {
@@ -188,23 +208,225 @@
         }
 
         .copy-icon {
-            margin-left: 10px;
-            color: #4ade80;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            width: 30px;
+            height: 30px;
+            background: linear-gradient(135deg, #22c55e, #16a34a);
+            border-radius: 8px;
             cursor: pointer;
+            border: 2px solid #fff;
+            box-shadow: 0 4px 15px rgba(34, 197, 94, 0.4);
+            animation: copy-wiggle 1s ease-in-out infinite;
         }
 
-        /* Footer Styles */
-        footer {
-            background: #fce7f3;
-            text-align: center;
-            padding: 25px 0;
+        @keyframes copy-wiggle {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(-5deg); }
+            75% { transform: rotate(5deg); }
+        }
+
+        .right-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-placeholder {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, #87ceeb, #98fb98, #f0e68c);
+            border-radius: 30px;
+            border: 6px solid #1f2937;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: container-bob 4s ease-in-out infinite;
+        }
+
+        @keyframes container-bob {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+
+        /* Enhanced background elements */
+        .bg-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 30px;
+            border: 2px solid #e5e7eb;
+            animation: cloud-float 6s ease-in-out infinite;
+        }
+
+        .cloud:nth-child(1) {
+            top: 30px;
+            left: 30px;
+            width: 80px;
+            height: 40px;
+            animation-delay: 0s;
+        }
+
+        .cloud:nth-child(2) {
+            top: 50px;
+            right: 40px;
+            width: 60px;
+            height: 30px;
+            animation-delay: 2s;
+        }
+
+        @keyframes cloud-float {
+            0%, 100% { transform: translateX(0); }
+            50% { transform: translateX(10px); }
+        }
+
+        .hills {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(to top, #22c55e, #4ade80, #86efac);
+            border-radius: 50% 50% 0 0;
+        }
+
+        .sparkles {
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 100%;
+            height: 100%;
+        }
+
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #ffd700;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .sparkle:nth-child(1) { top: 10%; left: 70%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 30%; left: 10%; animation-delay: 0.5s; }
+        .sparkle:nth-child(3) { top: 60%; left: 80%; animation-delay: 1s; }
+        .sparkle:nth-child(4) { top: 80%; left: 30%; animation-delay: 1.5s; }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Custom Image Animation */
+        .custom-character {
+            width: 300px;
+            height: auto;
+            max-height: 250px;
+            object-fit: contain;
+            position: relative;
+            z-index: 10;
+            border-radius: 20px;
+            animation: logo-dance 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 25px rgba(255, 105, 180, 0.4));
+        }
+
+        @keyframes logo-dance {
+            0%, 100% { 
+                transform: translateY(0) rotate(-1deg) scale(1); 
+            }
+            25% { 
+                transform: translateY(-8px) rotate(0.5deg) scale(1.02); 
+            }
+            50% { 
+                transform: translateY(-15px) rotate(0deg) scale(1.05); 
+            }
+            75% { 
+                transform: translateY(-8px) rotate(-0.5deg) scale(1.02); 
+            }
+        }
+
+        .custom-character:hover {
+            animation: logo-excited 0.5s ease-in-out infinite;
+        }
+
+        @keyframes logo-excited {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(1deg); }
+        }
+
+        .bottom-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+
+        /* Enhanced Action Buttons */
+        .action-buttons {
             margin-top: 40px;
-            border-top: 3px solid #db2777;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
-        footer p {
-            color: #9333ea;
-            font-size: 1rem;
+        .btn {
+            padding: 15px 30px;
+            border: 4px solid;
+            border-radius: 25px;
+            font-weight: 900;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            font-size: 1.1rem;
+            font-family: 'Comic Sans MS', cursive;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #a855f7, #8b5cf6);
+            color: white;
+            border-color: #7c3aed;
+            animation: button-bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes button-bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(168, 85, 247, 0.4);
+            animation: none;
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            border-color: #047857;
+            animation: button-bounce 2s ease-in-out infinite;
+            animation-delay: 0.5s;
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(16, 185, 129, 0.4);
+            animation: none;
         }
 
         /* Responsive Design */
@@ -219,112 +441,153 @@
                 font-size: 2.8rem;
             }
 
-            .main-subtitle {
-                font-size: 1.1rem;
+            .scrolling-text {
+                font-size: 1.5rem;
             }
 
-            .cta-button {
+            .image-placeholder {
+                width: 320px;
+                height: 320px;
+            }
+
+            .custom-character {
+                width: 250px;
+                max-height: 200px;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .main-title {
+                font-size: 2.2rem;
+            }
+
+            .scrolling-text {
+                font-size: 1.2rem;
+            }
+
+            .image-placeholder {
+                width: 280px;
+                height: 280px;
+            }
+
+            .custom-character {
+                width: 200px;
+                max-height: 160px;
+            }
+
+            .contract-section {
+                padding: 20px;
+            }
+
+            .btn {
+                padding: 12px 24px;
                 font-size: 1rem;
-                padding: 12px 25px;
-            }
-
-            .features {
-                margin: 30px 10px;
-                padding: 30px;
-            }
-
-            .feature-title {
-                font-size: 1.3rem;
-            }
-
-            .feature-desc {
-                font-size: 0.95rem;
             }
         }
     </style>
 </head>
 <body>
     <canvas id="bgCanvas"></canvas>
+    <!-- Floating Hearts -->
+    <div class="float-hearts">
+        <div class="heart">💖</div>
+        <div class="heart">💕</div>
+        <div class="heart">💗</div>
+        <div class="heart">💖</div>
+    </div>
 
     <!-- Top Scrolling Banner -->
-    <div class="scrolling-banner top-banner">
+    <div class="scrolling-banner">
         <div class="scrolling-container">
             <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
 
     <!-- Main Content -->
-    <div class="main-content">
-        <div class="main-text">
-            <h1 class="main-title">Welcome to FCC on Solana</h1>
-            <p class="main-subtitle">
-                Discover the future of memecoins with FCC on Solana. Our community-driven token is built on the Solana blockchain, offering ultra-fast transactions, minimal fees, and an inclusive ecosystem. Join us in pushing the frontiers of decentralized finance, one meme at a time.
-            </p>
-            <a href="#contract" class="cta-button">Get Involved</a>
-        </div>
-        <div class="main-image">
-            <img src="https://placekitten.com/600/400" alt="FCC Logo" style="width:100%; border-radius:20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
-        </div>
-    </div>
+    <div class="container">
+        <div class="main-content">
+            <div class="left-section">
+                <div class="social-icons">
+                    <!-- Twitter/X Icon -->
+                    <div class="social-icon">
+                        <svg width="28" height="28" viewBox="0 0 24 24" fill="#ff1493">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- DEX Screener Icon - Actual Logo -->
+                    <div class="social-icon">
+                        <svg width="28" height="28" viewBox="0 0 100 100" fill="#ff1493">
+                            <path d="M20 25 C25 15, 40 10, 50 15 C60 10, 75 15, 80 25 C85 30, 85 35, 80 40 L75 45 C80 50, 85 55, 80 65 C75 70, 70 75, 65 80 L60 85 C55 90, 50 95, 50 95 C50 95, 45 90, 40 85 L35 80 C30 75, 25 70, 20 65 C15 55, 20 50, 25 45 L20 40 C15 35, 15 30, 20 25 Z M35 35 C40 30, 45 35, 45 40 C45 45, 40 50, 35 45 C30 40, 30 35, 35 35 Z M65 35 C70 35, 70 40, 65 45 C60 50, 55 45, 55 40 C55 35, 60 30, 65 35 Z M50 50 C45 55, 40 60, 45 70 C50 75, 55 70, 60 60 C55 55, 50 50, 50 50 Z"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <h1 class="main-title">The FCC on Solana.</h1>
+                
+                <div class="contract-section">
+                    <div class="contract-label">CA:</div>
+                    <div class="contract-address">5G44MnIA2DYAcFgcNLdqq4spPqYnIxHoIgpGSpump</div>
+                    <div class="copy-icon">📋</div>
+                </div>
 
-    <!-- Features Section -->
-    <div class="features">
-        <div class="feature-item">
-            <div class="feature-icon">🚀</div>
-            <h3 class="feature-title">Fast Transactions</h3>
-            <p class="feature-desc">Experience lightning-fast transaction speeds with Solana's scalable network, ensuring your trades and transfers occur in milliseconds.</p>
-        </div>
-        <div class="feature-item">
-            <div class="feature-icon">🔒</div>
-            <h3 class="feature-title">Secure</h3>
-            <p class="feature-desc">Leveraging Solana's robust Proof of History consensus mechanism, FCC ensures top-tier security for all token holders.</p>
-        </div>
-        <div class="feature-item">
-            <div class="feature-icon">🌸</div>
-            <h3 class="feature-title">Community-Driven</h3>
-            <p class="feature-desc">Our pink and white feminine aesthetic sets us apart. Join a welcoming community passionate about memes, inclusivity, and innovation.</p>
-        </div>
-        <div class="feature-item">
-            <div class="feature-icon">💖</div>
-            <h3 class="feature-title">Charity Focused</h3>
-            <p class="feature-desc">A portion of every transaction supports women’s mental health initiatives, making FCC a coin with a cause.</p>
-        </div>
-    </div>
+                <div class="action-buttons">
+                    <a href="#" class="btn btn-primary">🚀 Buy $FCC</a>
+                    <a href="#" class="btn btn-secondary">💬 Join Community</a>
+                </div>
+            </div>
 
-    <!-- Contract Section -->
-    <div class="contract-section" id="contract">
-        <h2>Smart Contract Address</h2>
-        <div class="contract-address" id="address">3J98t1WpEZ73CNmQviecrnyiWrnqRhWNLy</div>
-        <span class="copy-icon" onclick="copyAddress()">📋</span>
+            <div class="right-section">
+                <div class="image-placeholder">
+                    <div class="bg-elements">
+                        <div class="cloud"></div>
+                        <div class="cloud"></div>
+                        <div class="hills"></div>
+                    </div>
+                    <div class="sparkles">
+                        <div class="sparkle"></div>
+                        <div class="sparkle"></div>
+                        <div class="sparkle"></div>
+                        <div class="sparkle"></div>
+                    </div>
+                    <!-- Your FCC image with animation -->
+                    <img src="https://i.ibb.co/yF0MMNhB/fccflatchest.jpg" alt="FCC Flat Chest Community" class="custom-character">
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Bottom Scrolling Banner -->
     <div class="scrolling-banner bottom-banner">
         <div class="scrolling-container">
             <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
 
     <script>
         // Copy Contract Address Function
-        function copyAddress() {
-            const addressText = document.getElementById('address').innerText;
+        document.querySelector('.copy-icon').addEventListener('click', function() {
+            const addressText = document.querySelector('.contract-address').innerText;
             navigator.clipboard.writeText(addressText).then(() => {
                 alert('Contract address copied to clipboard!');
             }).catch(err => {
                 console.error('Failed to copy text: ', err);
             });
-        }
+        });
     </script>
 
     <script>
