@@ -224,20 +224,19 @@
         }
 
         .image-placeholder {
-            width: 400px;
-            height: 400px;
-            background: linear-gradient(135deg, #87ceeb, #98fb98, #f0e68c);
-            border-radius: 30px;
-            border: 6px solid #1f2937;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.2);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: container-bob 4s ease-in-out infinite;
-        }
-
+    width: 800px;  /* Changed from 400px */
+    height: 800px; /* Changed from 400px */
+    background: linear-gradient(135deg, #87ceeb, #98fb98, #f0e68c);
+    border-radius: 30px;
+    border: 6px solid #1f2937;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: container-bob 4s ease-in-out infinite;
+}
         @keyframes container-bob {
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-10px) rotate(1deg); }
@@ -320,16 +319,16 @@
 
         /* Custom Image Animation */
         .custom-character {
-            width: 300px;
-            height: auto;
-            max-height: 250px;
-            object-fit: contain;
-            position: relative;
-            z-index: 10;
-            border-radius: 20px;
-            animation: logo-dance 3s ease-in-out infinite;
-            filter: drop-shadow(0 10px 25px rgba(255, 105, 180, 0.4));
-        }
+    width: 600px;    /* Changed from 300px */
+    height: auto;
+    max-height: 500px; /* Changed from 250px */
+    object-fit: contain;
+    position: relative;
+    z-index: 10;
+    border-radius: 20px;
+    animation: logo-dance 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 25px rgba(255, 105, 180, 0.4));
+}
 
         @keyframes logo-dance {
             0%, 100% { 
@@ -436,13 +435,13 @@
             }
 
             .image-placeholder {
-                width: 320px;
-                height: 320px;
+                width: 640px;
+                height: 640px;
             }
 
             .custom-character {
-                width: 250px;
-                max-height: 200px;
+                width: 500px;
+                max-height: 400px;
             }
 
             .container {
@@ -460,13 +459,13 @@
             }
 
             .image-placeholder {
-                width: 280px;
-                height: 280px;
+                width: 560px;
+                height: 560px;
             }
 
             .custom-character {
-                width: 200px;
-                max-height: 160px;
+                width: 400px;
+                max-height: 320px;
             }
 
             .contract-section {
