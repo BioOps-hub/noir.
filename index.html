@@ -243,154 +243,6 @@
             50% { transform: translateY(-10px) rotate(1deg); }
         }
 
-        /* Enhanced cartoon character */
-        .character {
-            width: 140px;
-            height: 170px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            border-radius: 70px 70px 40px 40px;
-            border: 5px solid #1f2937;
-            position: relative;
-            animation: character-dance 2s ease-in-out infinite;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        @keyframes character-dance {
-            0%, 100% { transform: translateY(0) rotate(-2deg); }
-            50% { transform: translateY(-15px) rotate(2deg); }
-        }
-
-        .character-face {
-            position: absolute;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 100px;
-            background: radial-gradient(circle, #fff, #ffe4e1);
-            border-radius: 50%;
-            border: 4px solid #1f2937;
-            box-shadow: inset 0 5px 15px rgba(255, 182, 193, 0.3);
-        }
-
-        .character-eyes {
-            position: absolute;
-            top: 25px;
-            left: 18px;
-            width: 20px;
-            height: 20px;
-            background: radial-gradient(circle, #1f2937, #000);
-            border-radius: 50%;
-            box-shadow: 35px 0 0 #1f2937, 35px 0 0 inset rgba(255,255,255,0.3);
-            animation: blink 3s infinite;
-        }
-
-        @keyframes blink {
-            0%, 90%, 100% { transform: scaleY(1); }
-            95% { transform: scaleY(0.1); }
-        }
-
-        .character-mouth {
-            position: absolute;
-            top: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 40px;
-            height: 20px;
-            background: #dc2626;
-            border-radius: 0 0 40px 40px;
-            border: 3px solid #1f2937;
-            box-shadow: inset 0 3px 8px rgba(0,0,0,0.3);
-        }
-
-        .character-cheeks {
-            position: absolute;
-            top: 45px;
-            left: 5px;
-            width: 15px;
-            height: 15px;
-            background: #ff69b4;
-            border-radius: 50%;
-            box-shadow: 70px 0 0 #ff69b4;
-            opacity: 0.7;
-            animation: blush 2s ease-in-out infinite;
-        }
-
-        @keyframes blush {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
-        }
-
-        .character-arms {
-            position: absolute;
-            top: 80px;
-            left: -30px;
-            width: 35px;
-            height: 60px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            border-radius: 17px;
-            border: 4px solid #1f2937;
-            transform: rotate(-30deg);
-            animation: wave-left 1.5s ease-in-out infinite;
-        }
-
-        @keyframes wave-left {
-            0%, 100% { transform: rotate(-30deg); }
-            50% { transform: rotate(-10deg); }
-        }
-
-        .character-arms::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: -155px;
-            width: 35px;
-            height: 60px;
-            background: linear-gradient(135deg, #ffd700, #ffed4e);
-            border-radius: 17px;
-            border: 4px solid #1f2937;
-            transform: rotate(60deg);
-            animation: wave-right 1.5s ease-in-out infinite;
-        }
-
-        @keyframes wave-right {
-            0%, 100% { transform: rotate(60deg); }
-            50% { transform: rotate(40deg); }
-        }
-
-        .character-legs {
-            position: absolute;
-            bottom: -40px;
-            left: 25px;
-            width: 30px;
-            height: 50px;
-            background: #1f2937;
-            border-radius: 15px;
-            animation: step-left 1s ease-in-out infinite;
-        }
-
-        @keyframes step-left {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(-10deg); }
-        }
-
-        .character-legs::after {
-            content: '';
-            position: absolute;
-            right: -60px;
-            top: 0;
-            width: 30px;
-            height: 50px;
-            background: #1f2937;
-            border-radius: 15px;
-            animation: step-right 1s ease-in-out infinite;
-        }
-
-        @keyframes step-right {
-            0%, 100% { transform: rotate(0deg); }
-            50% { transform: rotate(10deg); }
-        }
-
         /* Enhanced background elements */
         .bg-elements {
             position: absolute;
@@ -464,6 +316,42 @@
         @keyframes sparkle {
             0%, 100% { opacity: 0; transform: scale(0); }
             50% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Custom Image Animation */
+        .custom-character {
+            width: 280px;
+            height: auto;
+            max-height: 200px;
+            object-fit: contain;
+            position: relative;
+            z-index: 10;
+            animation: logo-dance 3s ease-in-out infinite;
+            filter: drop-shadow(0 10px 25px rgba(255, 105, 180, 0.4));
+        }
+
+        @keyframes logo-dance {
+            0%, 100% { 
+                transform: translateY(0) rotate(-2deg) scale(1); 
+            }
+            25% { 
+                transform: translateY(-8px) rotate(1deg) scale(1.02); 
+            }
+            50% { 
+                transform: translateY(-15px) rotate(0deg) scale(1.05); 
+            }
+            75% { 
+                transform: translateY(-8px) rotate(-1deg) scale(1.02); 
+            }
+        }
+
+        .custom-character:hover {
+            animation: logo-excited 0.5s ease-in-out infinite;
+        }
+
+        @keyframes logo-excited {
+            0%, 100% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.1) rotate(2deg); }
         }
 
         .bottom-banner {
@@ -551,9 +439,9 @@
                 height: 320px;
             }
 
-            .character {
-                width: 110px;
-                height: 140px;
+            .custom-character {
+                width: 240px;
+                max-height: 160px;
             }
 
             .container {
@@ -573,6 +461,11 @@
             .image-placeholder {
                 width: 280px;
                 height: 280px;
+            }
+
+            .custom-character {
+                width: 200px;
+                max-height: 140px;
             }
 
             .contract-section {
@@ -651,15 +544,8 @@
                         <div class="sparkle"></div>
                         <div class="sparkle"></div>
                     </div>
-                    <div class="character">
-                        <div class="character-face">
-                            <div class="character-eyes"></div>
-                            <div class="character-mouth"></div>
-                            <div class="character-cheeks"></div>
-                        </div>
-                        <div class="character-arms"></div>
-                        <div class="character-legs"></div>
-                    </div>
+                    <!-- Replace this src with your actual image path -->
+                    <img src="flat-chest-community-logo.png" alt="Flat Chest Community Logo" class="custom-character">
                 </div>
             </div>
         </div>
