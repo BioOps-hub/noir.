@@ -18,16 +18,6 @@
             overflow-x: hidden;
         }
 
-        /* Background Chart Canvas */
-        #bgCanvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-        }
-
         /* Scrolling Banner Styles */
         .scrolling-banner {
             background: linear-gradient(90deg, #ff1493, #ff69b4, #ff1493, #ff69b4);
@@ -491,7 +481,6 @@
     </style>
 </head>
 <body>
-    <canvas id="bgCanvas"></canvas>
     <!-- Floating Hearts -->
     <div class="float-hearts">
         <div class="heart">💖</div>
@@ -504,10 +493,10 @@
     <div class="scrolling-banner">
         <div class="scrolling-container">
             <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
@@ -525,11 +514,11 @@
                     </div>
                     
                     <!-- DEX Screener Icon - Actual Logo -->
-                    <div class="social-icon">
-                        <svg width="28" height="28" viewBox="0 0 100 100" fill="#ff1493">
-                            <path d="M20 25 C25 15, 40 10, 50 15 C60 10, 75 15, 80 25 C85 30, 85 35, 80 40 L75 45 C80 50, 85 55, 80 65 C75 70, 70 75, 65 80 L60 85 C55 90, 50 95, 50 95 C50 95, 45 90, 40 85 L35 80 C30 75, 25 70, 20 65 C15 55, 20 50, 25 45 L20 40 C15 35, 15 30, 20 25 Z M35 35 C40 30, 45 35, 45 40 C45 45, 40 50, 35 45 C30 40, 30 35, 35 35 Z M65 35 C70 35, 70 40, 65 45 C60 50, 55 45, 55 40 C55 35, 60 30, 65 35 Z M50 50 C45 55, 40 60, 45 70 C50 75, 55 70, 60 60 C55 55, 50 50, 50 50 Z"/>
-                        </svg>
-                    </div>
+                            <div class="social-icon">
+                                <svg width="28" height="28" viewBox="0 0 100 100" fill="#ff1493">
+                                      <path d="M20 25 C25 15, 40 10, 50 15 C60 10, 75 15, 80 25 C85 30, 85 35, 80 40 L75 45 C80 50, 85 55, 80 65 C75 70, 70 75, 65 80 L60 85 C55 90, 50 95, 50 95 C50 95, 45 90, 40 85 L35 80 C30 75, 25 70, 20 65 C15 55, 20 50, 25 45 L20 40 C15 35, 15 30, 20 25 Z M35 35 C40 30, 45 35, 45 40 C45 45, 40 50, 35 45 C30 40, 30 35, 35 35 Z M65 35 C70 35, 70 40, 65 45 C60 50, 55 45, 55 40 C55 35, 60 30, 65 35 Z M50 50 C45 55, 40 60, 45 70 C50 75, 55 70, 60 60 C55 55, 50 50, 50 50 Z"/>
+                                </svg>
+</div>
                 </div>
                 
                 <h1 class="main-title">The FCC on Solana.</h1>
@@ -570,64 +559,12 @@
     <div class="scrolling-banner bottom-banner">
         <div class="scrolling-container">
             <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
             <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             </div>
         </div>
     </div>
-
-    <script>
-        // Copy Contract Address Function
-        document.querySelector('.copy-icon').addEventListener('click', function() {
-            const addressText = document.querySelector('.contract-address').innerText;
-            navigator.clipboard.writeText(addressText).then(() => {
-                alert('Contract address copied to clipboard!');
-            }).catch(err => {
-                console.error('Failed to copy text: ', err);
-            });
-        });
-    </script>
-
-    <script>
-        // Background chart animation
-        const canvas = document.getElementById('bgCanvas');
-        const ctx = canvas.getContext('2d');
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
-
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-
-        function drawChart() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.beginPath();
-            let x = 0;
-            let y = canvas.height * 0.8;
-            ctx.moveTo(x, y);
-            const step = canvas.width / 20;
-            for (let i = 1; i <= 20; i++) {
-                x = step * i;
-                y = y + (Math.random() * 20 - 5); // volatile uptrend
-                if (y < canvas.height * 0.2) y = canvas.height * 0.2;
-                if (y > canvas.height * 0.9) y = canvas.height * 0.9;
-                ctx.lineTo(x, y);
-            }
-            ctx.strokeStyle = "rgba(54, 211, 153, 0.4)";
-            ctx.lineWidth = 3;
-            ctx.stroke();
-        }
-
-        function animateChart() {
-            drawChart();
-            requestAnimationFrame(animateChart);
-        }
-
-        animateChart();
-    </script>
 </body>
 </html>
