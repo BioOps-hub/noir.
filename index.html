@@ -320,28 +320,29 @@
 
         /* Custom Image Animation */
         .custom-character {
-            width: 280px;
+            width: 300px;
             height: auto;
-            max-height: 200px;
+            max-height: 250px;
             object-fit: contain;
             position: relative;
             z-index: 10;
+            border-radius: 20px;
             animation: logo-dance 3s ease-in-out infinite;
             filter: drop-shadow(0 10px 25px rgba(255, 105, 180, 0.4));
         }
 
         @keyframes logo-dance {
             0%, 100% { 
-                transform: translateY(0) rotate(-2deg) scale(1); 
+                transform: translateY(0) rotate(-1deg) scale(1); 
             }
             25% { 
-                transform: translateY(-8px) rotate(1deg) scale(1.02); 
+                transform: translateY(-8px) rotate(0.5deg) scale(1.02); 
             }
             50% { 
                 transform: translateY(-15px) rotate(0deg) scale(1.05); 
             }
             75% { 
-                transform: translateY(-8px) rotate(-1deg) scale(1.02); 
+                transform: translateY(-8px) rotate(-0.5deg) scale(1.02); 
             }
         }
 
@@ -351,7 +352,7 @@
 
         @keyframes logo-excited {
             0%, 100% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.1) rotate(2deg); }
+            50% { transform: scale(1.1) rotate(1deg); }
         }
 
         .bottom-banner {
@@ -440,8 +441,8 @@
             }
 
             .custom-character {
-                width: 240px;
-                max-height: 160px;
+                width: 250px;
+                max-height: 200px;
             }
 
             .container {
@@ -465,7 +466,7 @@
 
             .custom-character {
                 width: 200px;
-                max-height: 140px;
+                max-height: 160px;
             }
 
             .contract-section {
@@ -521,7 +522,7 @@
                 
                 <div class="contract-section">
                     <div class="contract-label">CA:</div>
-                    <div class="contract-address">5G44MnIA2DYAcFgcNLdqq4spPqYnIxHoIgpGSpump</div>
+                    <div class="contract-address">TBD</div>
                     <div class="copy-icon">📋</div>
                 </div>
 
@@ -544,8 +545,8 @@
                         <div class="sparkle"></div>
                         <div class="sparkle"></div>
                     </div>
-                    <!-- Replace this src with your actual image path -->
-                    <img src="https://ibb.co/jkhxx8VZ" alt="Flat Chest Community Logo" class="custom-character">
+                    <!-- Your FCC image with animation -->
+                    <img src="https://i.ibb.co/yF0MMNhB/fccflatchest.jpg" alt="FCC Flat Chest Community" class="custom-character">
                 </div>
             </div>
         </div>
