@@ -111,8 +111,8 @@
 
         .main-content {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
+            grid-template-columns: 1.2fr 1.8fr; /* Make right section wider */
+            gap: 40px;
             align-items: center;
             width: 100%;
             position: relative;
@@ -121,6 +121,10 @@
 
         .left-section {
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start; /* Align to left */
+            justify-content: center;
         }
 
         .social-icons {
@@ -232,54 +236,27 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            margin-right: -100px; /* This will push the image further right */
-        }
-
-    
-
-        @keyframes container-bob {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(1deg); }
-        }
-
-       
-
-       
-
-       
-
-        .sparkles {
-            position: absolute;
-            top: 20%;
-            left: 20%;
+            margin-right: 0; /* Remove negative margin */
             width: 100%;
-            height: 100%;
         }
 
-        .sparkle {
-            position: absolute;
-            width: 8px;
-            height: 8px;
-            background: #ffd700;
-            border-radius: 50%;
-            animation: sparkle 2s ease-in-out infinite;
+        .image-placeholder {
+            width: 900px !important;
+            max-width: 1200px !important;
+            margin-right: 0 !important;
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            background: none;
         }
 
-        .sparkle:nth-child(1) { top: 10%; left: 70%; animation-delay: 0s; }
-        .sparkle:nth-child(2) { top: 30%; left: 10%; animation-delay: 0.5s; }
-        .sparkle:nth-child(3) { top: 60%; left: 80%; animation-delay: 1s; }
-        .sparkle:nth-child(4) { top: 80%; left: 30%; animation-delay: 1.5s; }
-
-        @keyframes sparkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
-        }
-
-        /* Custom Image Animation */
         .custom-character {
-            width: 600px;
-            height: auto;
-            max-height: 250px;
+            width: 900px !important;
+            max-width: 1200px !important;
+            max-height: 600px !important;
+            min-width: 400px;
+            min-height: 300px;
             object-fit: contain;
             position: relative;
             z-index: 10;
@@ -435,6 +412,27 @@
                 font-size: 1rem;
             }
         }
+
+        @media (max-width: 1200px) {
+            .image-placeholder, .custom-character {
+                width: 70vw !important;
+                max-width: 90vw !important;
+            }
+        }
+        @media (max-width: 900px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .right-section, .left-section {
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+            }
+            .image-placeholder, .custom-character {
+                width: 90vw !important;
+                max-width: 98vw !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -446,17 +444,7 @@
         <div class="heart">💖</div>
     </div>
 
-    <!-- Top Scrolling Banner -->
-    <div class="scrolling-banner">
-        <div class="scrolling-container">
-            <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC 
-            </div>
-            <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-        </div>
-    </div>
+   
     <!-- Main Content -->
     <div class="container">
         <div class="main-content">
@@ -517,16 +505,6 @@
         </div>
     </div>
 
-    <!-- Bottom Scrolling Banner -->
-    <div class="scrolling-banner bottom-banner">
-        <div class="scrolling-container">
-            <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-            <div class="scrolling-text">
-                $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; $FCC &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            </div>
-        </div>
-    </div>
+    
 </body>
 </html>
